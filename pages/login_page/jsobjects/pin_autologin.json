@@ -1,0 +1,16 @@
+{
+  "unpublishedCollection": {
+    "name": "pin_autologin",
+    "pageId": "login_page",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tonSubmit: () => {\n\t\tapi_login_user.run()\n\t\t\t.then(() => {\n\t\t\t\tif(api_login_user.data.success) {\n\t\t\t\t\tstoreValue(\"token\", api_login_user.data.token);\n\t\t\t\t\tshowAlert(\"Login success\");\n\t\t\t\t} else showAlert(\"Failed to login, possibly an invalid PIN.\");\n\t\t\t})\n\t\t\t.catch(() => showAlert(\"Failed to login, possibly an invalid PIN.\"));\n\t},\n\tonTextChanged: () => {\n\t\tif(LoginForm.formData.pin.length == 6) {\n\t\t\tpin_autologin.onSubmit();\n\t\t}\n\t}\n}",
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "login_page_pin_autologin",
+  "deleted": false,
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639907bce77ccb59f6885638"
+}
