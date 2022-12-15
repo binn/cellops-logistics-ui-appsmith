@@ -2,7 +2,7 @@
   "pluginType": "API",
   "pluginId": "restapi-plugin",
   "unpublishedAction": {
-    "name": "api_login_user",
+    "name": "GetAllEmployees",
     "datasource": {
       "name": "track.angelcellular.com",
       "pluginId": "restapi-plugin",
@@ -13,22 +13,16 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "login_page",
+    "pageId": "admin_page",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
-      "path": "/authorization/login",
-      "headers": [
-        {
-          "key": "content-type",
-          "value": "application/json"
-        }
-      ],
+      "path": "/admin/employees",
+      "headers": [],
       "encodeParamsToggle": true,
       "queryParameters": [],
-      "body": "{\n\t\"pin\": \"{{LoginForm.formData.pin}}\"\n}",
       "bodyFormData": [],
-      "httpMethod": "POST",
+      "httpMethod": "GET",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -36,24 +30,23 @@
         }
       ],
       "formData": {
-        "apiContentType": "application/json"
+        "apiContentType": "none"
       }
     },
-    "executeOnLoad": false,
+    "executeOnLoad": true,
     "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      " appsmith.store.token ",
-      "LoginForm.formData.pin"
+      " appsmith.store.token "
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "login_page_api_login_user",
+  "id": "admin_page_GetAllEmployees",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_6398ffe54b95806da2daafbf"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639a5a2b57ef71224576cd00"
 }

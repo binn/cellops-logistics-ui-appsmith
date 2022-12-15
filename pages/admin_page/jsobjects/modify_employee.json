@@ -1,0 +1,21 @@
+{
+  "unpublishedCollection": {
+    "name": "modify_employee",
+    "pageId": "admin_page",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tselectedEmployee: {\n\t\tid: 0,\n\t\tname: \"\",\n\t\tadmin: false,\n\t\tsupervisor: false,\n\t\tpin: \"\",\n\t\tdepartment: {\n\t\t\tid: 0,\n\t\t\tname: \"\"\n\t\t}\n\t},\n\topenModifyModal: (row) => {\n\t\tvar idx = GetAllEmployees.data.map(e => e.id).indexOf(row.id);\n\t\tmodify_employee.selectedEmployee = GetAllEmployees.data[idx];\n\t\tshowModal(\"Modal1\");\n\t\t\n\t\tconsole.log(modify_employee.selectedEmployee);\n\t}\n}",
+    "variables": [
+      {
+        "name": "selectedEmployee",
+        "value": "{\n  id: 0,\n  name: \"\",\n  admin: false,\n  supervisor: false,\n  pin: \"\",\n  department: {\n    id: 0,\n    name: \"\"\n  }\n}"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "admin_page_modify_employee",
+  "deleted": false,
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639a5e0203959a6b55a234b8"
+}

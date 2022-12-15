@@ -1,0 +1,16 @@
+{
+  "unpublishedCollection": {
+    "name": "verify_admin_before_load",
+    "pageId": "admin_page",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default { \n\tverifyAdminBeforePageLoad: async () => {\n\t\tif(appsmith.store.debug_mode) {\n\t\t\tshowAlert(\"Skipped admin check because of debug mode being enabled.\");\n\t\t\treturn;\n\t\t}\n\t\t\n\t\tif(!appsmith.store.user.admin) {\n\t\t\tshowAlert(\"Must be an admin to access this page!\", \"error\");\n\t\t\tnavigateTo(\"lot_dashboard\");\n\t\t}\n\t}\n}",
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "admin_page_verify_admin_before_load",
+  "deleted": false,
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639a52095b4b533c8eaa79da"
+}

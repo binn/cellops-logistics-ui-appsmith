@@ -2,7 +2,7 @@
   "pluginType": "API",
   "pluginId": "restapi-plugin",
   "unpublishedAction": {
-    "name": "api_login_user",
+    "name": "UpdateEmployee",
     "datasource": {
       "name": "track.angelcellular.com",
       "pluginId": "restapi-plugin",
@@ -13,11 +13,11 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "login_page",
+    "pageId": "admin_page",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
-      "path": "/authorization/login",
+      "path": "/admin/employees/{{Table1.selectedRow.id}}",
       "headers": [
         {
           "key": "content-type",
@@ -26,7 +26,7 @@
       ],
       "encodeParamsToggle": true,
       "queryParameters": [],
-      "body": "{\n\t\"pin\": \"{{LoginForm.formData.pin}}\"\n}",
+      "body": "{{\n\t{\n\t\tname: Table1.updatedRow.name,\n\t\tdepartment: GetAllDepartments.data[GetAllDepartments.data.map(e => e.name).indexOf(Table1.updatedRow.department)].id,\n\t\tpin: Table1.updatedRow.pin,\n\t\tadmin: Table1.updatedRow.admin,\n\t\tsupervisor: Table1.updatedRow.supervisor,\n\t}\n}}",
       "bodyFormData": [],
       "httpMethod": "POST",
       "selfReferencingDataPaths": [],
@@ -40,20 +40,28 @@
       }
     },
     "executeOnLoad": false,
-    "dynamicBindingPathList": [],
+    "dynamicBindingPathList": [
+      {
+        "key": "path"
+      },
+      {
+        "key": "body"
+      }
+    ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
+      "\n\t{\n\t\tname: Table1.updatedRow.name,\n\t\tdepartment: GetAllDepartments.data[GetAllDepartments.data.map(e => e.name).indexOf(Table1.updatedRow.department)].id,\n\t\tpin: Table1.updatedRow.pin,\n\t\tadmin: Table1.updatedRow.admin,\n\t\tsupervisor: Table1.updatedRow.supervisor,\n\t}\n",
       " appsmith.store.token ",
-      "LoginForm.formData.pin"
+      "Table1.selectedRow.id"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "login_page_api_login_user",
+  "id": "admin_page_UpdateEmployee",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_6398ffe54b95806da2daafbf"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639a627c7c323677ddd82aca"
 }

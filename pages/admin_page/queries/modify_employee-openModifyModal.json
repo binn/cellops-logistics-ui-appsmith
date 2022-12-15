@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "onTextChanged",
-    "fullyQualifiedName": "pin_autologin.onTextChanged",
+    "name": "openModifyModal",
+    "fullyQualifiedName": "modify_employee.openModifyModal",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -13,19 +13,20 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "login_page",
-    "collectionId": "login_page_pin_autologin",
+    "pageId": "admin_page",
+    "collectionId": "admin_page_modify_employee",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "() => {\n  if (LoginForm.formData.pin.length == 4) {\n    pin_autologin.onSubmit();\n  }\n}",
+      "body": "row => {\n  var idx = GetAllEmployees.data.map(e => e.id).indexOf(row.id);\n  modify_employee.selectedEmployee = GetAllEmployees.data[idx];\n  showModal(\"Modal1\");\n  console.log(modify_employee.selectedEmployee);\n}",
       "selfReferencingDataPaths": [],
-      "jsArguments": [],
+      "jsArguments": [
+        {}
+      ],
       "isAsync": false
     },
     "executeOnLoad": false,
-    "clientSideExecution": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -35,14 +36,14 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "() => {\n  if (LoginForm.formData.pin.length == 4) {\n    pin_autologin.onSubmit();\n  }\n}"
+      "row => {\n  var idx = GetAllEmployees.data.map(e => e.id).indexOf(row.id);\n  modify_employee.selectedEmployee = GetAllEmployees.data[idx];\n  showModal(\"Modal1\");\n  console.log(modify_employee.selectedEmployee);\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "login_page_pin_autologin.onTextChanged",
+  "id": "admin_page_modify_employee.openModifyModal",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639907bce77ccb59f6885634"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639a5eda7c323677ddd82ab7"
 }

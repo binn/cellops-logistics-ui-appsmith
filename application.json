@@ -11,6 +11,10 @@
     {
       "id": "admin_page",
       "isDefault": false
+    },
+    {
+      "id": "private_test_page",
+      "isDefault": false
     }
   ],
   "viewMode": false,
