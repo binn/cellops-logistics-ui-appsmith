@@ -16,7 +16,7 @@
     "pageId": "lot_dashboard",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
-      "paginationType": "NONE",
+      "paginationType": "PAGE_NO",
       "path": "/lots",
       "headers": [],
       "encodeParamsToggle": true,

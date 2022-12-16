@@ -164,6 +164,7 @@
                         }
                       },
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                      "primaryColumnId": "id",
                       "defaultSelectedRowIndices": [
                         0
                       ],
