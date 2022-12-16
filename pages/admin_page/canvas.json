@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 900,
+          "bottomRow": 1300,
           "containerStyle": "none",
           "snapRows": 85,
           "parentRowSpace": 1,
@@ -30,7 +30,7 @@
               "borderColor": "#E0DEDE",
               "isVisibleDownload": true,
               "iconSVG": "/static/media/icon.db8a9cbd2acd22a31ea91cc37ea2a46c.svg",
-              "topRow": 3,
+              "topRow": 5,
               "isSortable": true,
               "type": "TABLE_WIDGET_V2",
               "inlineEditingSaveOption": "ROW_LEVEL",
@@ -86,6 +86,15 @@
                 },
                 {
                   "key": "primaryColumns.department.computedValue"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.borderRadius"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.boxShadow"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.buttonLabel"
                 }
               ],
               "leftColumn": 0,
@@ -127,7 +136,7 @@
               "defaultSelectedRowIndices": [
                 0
               ],
-              "widgetName": "Table1",
+              "widgetName": "EmployeesTable",
               "defaultPageSize": 0,
               "columnOrder": [
                 "id",
@@ -137,7 +146,8 @@
                 "supervisor",
                 "pin",
                 "timestamp",
-                "EditActions1"
+                "EditActions1",
+                "customColumn1"
               ],
               "dynamicPropertyPathList": [
                 {
@@ -148,7 +158,7 @@
                 }
               ],
               "displayName": "Table",
-              "bottomRow": 48,
+              "bottomRow": 50,
               "columnWidthMap": {
                 "task": 245,
                 "step": 62,
@@ -163,6 +173,7 @@
               },
               "parentRowSpace": 10,
               "hideCard": false,
+              "onAddNewRowSave": "{{CreateEmployee.run(() => GetAllEmployees.run(), () => {})}}",
               "parentColumnSpace": 19.8125,
               "dynamicTriggerPathList": [
                 {
@@ -182,6 +193,12 @@
                 },
                 {
                   "key": "primaryColumns.EditActions1.onSave"
+                },
+                {
+                  "key": "onAddNewRowSave"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.onClick"
                 }
               ],
               "borderWidth": "1",
@@ -210,7 +227,7 @@
                   "label": "ID",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"id\"]))}}",
+                  "computedValue": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"id\"]))}}",
                   "validation": {},
                   "cellBackground": ""
                 },
@@ -238,7 +255,7 @@
                   "label": "PIN",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"pin\"]))}}",
+                  "computedValue": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"pin\"]))}}",
                   "validation": {},
                   "cellBackground": ""
                 },
@@ -266,7 +283,7 @@
                   "label": "Name",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"name\"]))}}",
+                  "computedValue": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"name\"]))}}",
                   "validation": {},
                   "cellBackground": "",
                   "onSubmit": ""
@@ -295,7 +312,7 @@
                   "label": "Admin",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"admin\"]))}}",
+                  "computedValue": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"admin\"]))}}",
                   "validation": {},
                   "cellBackground": "",
                   "onCheckChange": ""
@@ -324,7 +341,7 @@
                   "label": "Supervisor",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"supervisor\"]))}}",
+                  "computedValue": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"supervisor\"]))}}",
                   "validation": {},
                   "cellBackground": "",
                   "onCheckChange": ""
@@ -353,7 +370,7 @@
                   "label": "Created On",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( moment(currentRow[\"timestamp\"]).format(\"MM/DD/YYYY hh:mm A\")))}}",
+                  "computedValue": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( moment(currentRow[\"timestamp\"]).format(\"MM/DD/YYYY hh:mm A\")))}}",
                   "validation": {},
                   "cellBackground": ""
                 },
@@ -381,7 +398,7 @@
                   "label": "Department",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => (  typeof currentRow.department === 'string' ? currentRow.department : currentRow.department.name ))}}",
+                  "computedValue": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => (  typeof currentRow.department === 'string' ? currentRow.department : currentRow.department.name ))}}",
                   "validation": {},
                   "cellBackground": "",
                   "selectOptions": "{{GetAllDepartments.data.map(dept => ({ label: dept.name, value: dept.name }))}}",
@@ -413,23 +430,57 @@
                   "discardIconAlign": "left",
                   "saveActionLabel": "Save",
                   "discardActionLabel": "Discard",
-                  "saveButtonColor": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.colors.primaryColor))}}",
+                  "saveButtonColor": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.colors.primaryColor))}}",
                   "discardButtonColor": "#F22B2B",
-                  "saveBorderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
-                  "discardBorderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
+                  "saveBorderRadius": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
+                  "discardBorderRadius": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
                   "discardButtonVariant": "TERTIARY",
-                  "isSaveDisabled": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( !Table1.updatedRowIndices.includes(currentIndex)))}}",
-                  "isDiscardDisabled": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( !Table1.updatedRowIndices.includes(currentIndex)))}}",
+                  "isSaveDisabled": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( !EmployeesTable.updatedRowIndices.includes(currentIndex)))}}",
+                  "isDiscardDisabled": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( !EmployeesTable.updatedRowIndices.includes(currentIndex)))}}",
                   "onSave": "{{UpdateEmployee.run(() => GetAllEmployees.run(), () => {})}}"
+                },
+                "customColumn1": {
+                  "allowCellWrapping": false,
+                  "index": 9,
+                  "width": 150,
+                  "originalId": "customColumn1",
+                  "id": "customColumn1",
+                  "alias": "Delete",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "button",
+                  "textSize": "0.875rem",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": true,
+                  "label": "Delete",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "",
+                  "validation": {},
+                  "buttonStyle": "rgb(3, 179, 101)",
+                  "labelColor": "#FFFFFF",
+                  "buttonColor": "#dc2626",
+                  "borderRadius": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
+                  "boxShadow": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
+                  "customAlias": "",
+                  "buttonLabel": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( 'Delete'))}}",
+                  "buttonVariant": "PRIMARY",
+                  "onClick": "{{showModal('DeleteEmployeeConfirmModal')}}"
                 }
               },
               "onRowSelected": "",
               "key": "o249e3etj6",
               "isDeprecated": false,
-              "rightColumn": 46,
+              "rightColumn": 51,
               "textSize": "0.875rem",
               "widgetId": "fhpp90u15i",
-              "allowAddNewRow": false,
+              "allowAddNewRow": true,
               "tableData": "{{GetAllEmployees.data}}",
               "label": "Data",
               "searchKey": "",
@@ -445,7 +496,7 @@
               "borderColor": "#E0DEDE",
               "isVisibleDownload": true,
               "iconSVG": "/static/media/icon.db8a9cbd2acd22a31ea91cc37ea2a46c.svg",
-              "topRow": 50,
+              "topRow": 56,
               "isSortable": true,
               "type": "TABLE_WIDGET_V2",
               "inlineEditingSaveOption": "ROW_LEVEL",
@@ -474,11 +525,36 @@
                 },
                 {
                   "key": "tableData"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.borderRadius"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.boxShadow"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.buttonLabel"
+                },
+                {
+                  "key": "primaryColumns.EditActions1.saveButtonColor"
+                },
+                {
+                  "key": "primaryColumns.EditActions1.saveBorderRadius"
+                },
+                {
+                  "key": "primaryColumns.EditActions1.discardBorderRadius"
+                },
+                {
+                  "key": "primaryColumns.EditActions1.isSaveDisabled"
+                },
+                {
+                  "key": "primaryColumns.EditActions1.isDiscardDisabled"
                 }
               ],
               "leftColumn": 0,
               "delimiter": ",",
               "defaultSelectedRowIndex": 0,
+              "showInlineEditingOptionDropdown": true,
               "accentColor": "{{appsmith.theme.colors.primaryColor}}",
               "isVisibleFilters": true,
               "isVisible": true,
@@ -513,22 +589,32 @@
               "defaultSelectedRowIndices": [
                 0
               ],
-              "widgetName": "Table2",
+              "widgetName": "DepartmentsTable",
               "defaultPageSize": 0,
               "columnOrder": [
                 "id",
                 "name",
                 "employees",
-                "description"
+                "description",
+                "customColumn1",
+                "EditActions1"
               ],
-              "dynamicPropertyPathList": [],
+              "dynamicPropertyPathList": [
+                {
+                  "key": "primaryColumns.EditActions1.isSaveDisabled"
+                },
+                {
+                  "key": "primaryColumns.EditActions1.isDiscardDisabled"
+                }
+              ],
               "displayName": "Table",
-              "bottomRow": 82,
+              "bottomRow": 90,
               "columnWidthMap": {
                 "task": 245,
                 "step": 62,
                 "status": 75,
-                "employees": 98
+                "employees": 98,
+                "description": 657
               },
               "parentRowSpace": 10,
               "hideCard": false,
@@ -553,14 +639,14 @@
                   "enableSort": true,
                   "isVisible": false,
                   "isDisabled": false,
-                  "isCellEditable": false,
-                  "isEditable": false,
+                  "isCellEditable": true,
+                  "isEditable": true,
                   "isCellVisible": true,
                   "isDerived": false,
                   "label": "ID",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"id\"]))}}",
+                  "computedValue": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"id\"]))}}",
                   "validation": {},
                   "cellBackground": ""
                 },
@@ -581,19 +667,19 @@
                   "enableSort": true,
                   "isVisible": true,
                   "isDisabled": false,
-                  "isCellEditable": false,
-                  "isEditable": false,
+                  "isCellEditable": true,
+                  "isEditable": true,
                   "isCellVisible": true,
                   "isDerived": false,
                   "label": "Name",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"name\"]))}}",
+                  "computedValue": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"name\"]))}}",
                   "validation": {},
                   "cellBackground": ""
                 },
                 "description": {
-                  "allowCellWrapping": false,
+                  "allowCellWrapping": true,
                   "index": 2,
                   "width": 150,
                   "originalId": "description",
@@ -609,14 +695,14 @@
                   "enableSort": true,
                   "isVisible": true,
                   "isDisabled": false,
-                  "isCellEditable": false,
-                  "isEditable": false,
+                  "isCellEditable": true,
+                  "isEditable": true,
                   "isCellVisible": true,
                   "isDerived": false,
                   "label": "Description",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"description\"]))}}",
+                  "computedValue": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"description\"]))}}",
                   "validation": {},
                   "cellBackground": ""
                 },
@@ -637,23 +723,90 @@
                   "enableSort": true,
                   "isVisible": true,
                   "isDisabled": false,
-                  "isCellEditable": false,
-                  "isEditable": false,
+                  "isCellEditable": true,
+                  "isEditable": true,
                   "isCellVisible": true,
                   "isDerived": false,
                   "label": "Employees",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
-                  "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"employees\"].length))}}",
+                  "computedValue": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"employees\"].length))}}",
                   "validation": {},
                   "cellBackground": ""
+                },
+                "customColumn1": {
+                  "allowCellWrapping": false,
+                  "index": 4,
+                  "width": 150,
+                  "originalId": "customColumn1",
+                  "id": "customColumn1",
+                  "alias": "Delete",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "button",
+                  "textSize": "0.875rem",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": true,
+                  "label": "Delete",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "",
+                  "validation": {},
+                  "buttonStyle": "rgb(3, 179, 101)",
+                  "labelColor": "#FFFFFF",
+                  "buttonColor": "#dc2626",
+                  "borderRadius": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
+                  "boxShadow": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
+                  "customAlias": "",
+                  "buttonLabel": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( 'Delete'))}}"
+                },
+                "EditActions1": {
+                  "allowCellWrapping": false,
+                  "index": 5,
+                  "width": 150,
+                  "originalId": "EditActions1",
+                  "id": "EditActions1",
+                  "alias": "EditActions1",
+                  "columnType": "editActions",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": true,
+                  "label": "Save / Discard",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "",
+                  "validation": {},
+                  "buttonStyle": "rgb(3, 179, 101)",
+                  "saveIconAlign": "left",
+                  "discardIconAlign": "left",
+                  "saveActionLabel": "Save",
+                  "discardActionLabel": "Discard",
+                  "saveButtonColor": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.colors.primaryColor))}}",
+                  "discardButtonColor": "#F22B2B",
+                  "saveBorderRadius": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
+                  "discardBorderRadius": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
+                  "discardButtonVariant": "TERTIARY",
+                  "isSaveDisabled": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( !DepartmentsTable.updatedRowIndices.includes(currentIndex)))}}",
+                  "isDiscardDisabled": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( !DepartmentsTable.updatedRowIndices.includes(currentIndex)))}}"
                 }
               },
               "key": "o249e3etj6",
               "isDeprecated": false,
-              "rightColumn": 40,
+              "rightColumn": 61,
               "textSize": "0.875rem",
               "widgetId": "ahyssbg8kh",
+              "allowAddNewRow": true,
               "tableData": "{{GetAllDepartments.data}}",
               "label": "Data",
               "searchKey": "",
@@ -666,7 +819,7 @@
             },
             {
               "boxShadow": "none",
-              "widgetName": "Modal1",
+              "widgetName": "DeleteEmployeeConfirmModal",
               "isCanvas": true,
               "displayName": "Modal",
               "iconSVG": "/static/media/icon.4975978e9a961fb0bfb4e38de7ecc7c5.svg",
@@ -676,13 +829,19 @@
                 "notification"
               ],
               "topRow": 30,
-              "bottomRow": 270,
+              "bottomRow": 19,
               "parentRowSpace": 10,
               "type": "MODAL_WIDGET",
               "hideCard": false,
               "shouldScrollContents": true,
+              "minHeight": 210,
               "animateLoading": true,
               "parentColumnSpace": 19.8125,
+              "dynamicTriggerPathList": [
+                {
+                  "key": "onClose"
+                }
+              ],
               "leftColumn": 16,
               "dynamicBindingPathList": [
                 {
@@ -694,13 +853,13 @@
                   "widgetName": "Canvas1",
                   "displayName": "Canvas",
                   "topRow": 0,
-                  "bottomRow": 240,
+                  "bottomRow": 190,
                   "parentRowSpace": 1,
                   "type": "CANVAS_WIDGET",
                   "canExtend": true,
                   "hideCard": true,
                   "shouldScrollContents": false,
-                  "minHeight": 240,
+                  "minHeight": 190,
                   "parentColumnSpace": 1,
                   "leftColumn": 0,
                   "dynamicBindingPathList": [],
@@ -708,7 +867,7 @@
                     {
                       "boxShadow": "none",
                       "widgetName": "IconButton1",
-                      "onClick": "{{closeModal('Modal1')}}",
+                      "onClick": "{{closeModal('DeleteEmployeeConfirmModal')}}",
                       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
                       "displayName": "Icon Button",
                       "iconSVG": "/static/media/icon.1a0c634ac75f9fa6b6ae7a8df882a3ba.svg",
@@ -721,6 +880,11 @@
                       "type": "ICON_BUTTON_WIDGET",
                       "hideCard": false,
                       "animateLoading": true,
+                      "dynamicTriggerPathList": [
+                        {
+                          "key": "onClick"
+                        }
+                      ],
                       "leftColumn": 58,
                       "dynamicBindingPathList": [
                         {
@@ -772,14 +936,11 @@
                         },
                         {
                           "key": "borderRadius"
-                        },
-                        {
-                          "key": "text"
                         }
                       ],
                       "shouldTruncate": false,
                       "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
-                      "text": "Modify {{modify_employee.selectedEmployee.name}}",
+                      "text": "Confirm Deletion",
                       "key": "8rh9xlt4w0",
                       "isDeprecated": false,
                       "rightColumn": 41,
@@ -802,7 +963,7 @@
                       "resetFormOnClick": false,
                       "boxShadow": "none",
                       "widgetName": "Button1",
-                      "onClick": "{{closeModal('Modal1')}}",
+                      "onClick": "{{closeModal('DeleteEmployeeConfirmModal')}}",
                       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
                       "displayName": "Button",
                       "iconSVG": "/static/media/icon.cca026338f1c8eb6df8ba03d084c2fca.svg",
@@ -810,11 +971,16 @@
                         "click",
                         "submit"
                       ],
-                      "topRow": 18,
-                      "bottomRow": 22,
+                      "topRow": 13,
+                      "bottomRow": 17,
                       "type": "BUTTON_WIDGET",
                       "hideCard": false,
                       "animateLoading": true,
+                      "dynamicTriggerPathList": [
+                        {
+                          "key": "onClick"
+                        }
+                      ],
                       "leftColumn": 31,
                       "dynamicBindingPathList": [
                         {
@@ -824,7 +990,7 @@
                           "key": "borderRadius"
                         }
                       ],
-                      "text": "Close",
+                      "text": "Cancel",
                       "isDisabled": false,
                       "key": "9ux6idk69k",
                       "isDeprecated": false,
@@ -838,8 +1004,10 @@
                       "parentId": "qv3r474khs",
                       "renderMode": "CANVAS",
                       "isLoading": false,
+                      "originalTopRow": 13,
                       "disabledWhenInvalid": false,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                      "originalBottomRow": 17,
                       "buttonVariant": "SECONDARY",
                       "placement": "CENTER"
                     },
@@ -847,28 +1015,31 @@
                       "resetFormOnClick": false,
                       "boxShadow": "none",
                       "widgetName": "Button2",
-                      "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+                      "onClick": "{{DeleteEmployee.run(() => closeModal('DeleteEmployeeConfirmModal'), () => {})}}",
+                      "buttonColor": "#f22b2b",
                       "displayName": "Button",
                       "iconSVG": "/static/media/icon.cca026338f1c8eb6df8ba03d084c2fca.svg",
                       "searchTags": [
                         "click",
                         "submit"
                       ],
-                      "topRow": 18,
-                      "bottomRow": 22,
+                      "topRow": 13,
+                      "bottomRow": 17,
                       "type": "BUTTON_WIDGET",
                       "hideCard": false,
                       "animateLoading": true,
-                      "leftColumn": 47,
-                      "dynamicBindingPathList": [
+                      "dynamicTriggerPathList": [
                         {
-                          "key": "buttonColor"
-                        },
+                          "key": "onClick"
+                        }
+                      ],
+                      "leftColumn": 48,
+                      "dynamicBindingPathList": [
                         {
                           "key": "borderRadius"
                         }
                       ],
-                      "text": "Confirm",
+                      "text": "Delete",
                       "isDisabled": false,
                       "key": "9ux6idk69k",
                       "isDeprecated": false,
@@ -882,10 +1053,69 @@
                       "parentId": "qv3r474khs",
                       "renderMode": "CANVAS",
                       "isLoading": false,
+                      "originalTopRow": 13,
                       "disabledWhenInvalid": false,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                      "originalBottomRow": 17,
                       "buttonVariant": "PRIMARY",
                       "placement": "CENTER"
+                    },
+                    {
+                      "widgetName": "Text2",
+                      "displayName": "Text",
+                      "iconSVG": "/static/media/icon.97c59b523e6f70ba6f40a10fc2c7c5b5.svg",
+                      "searchTags": [
+                        "typography",
+                        "paragraph",
+                        "label"
+                      ],
+                      "topRow": 6,
+                      "bottomRow": 11,
+                      "parentRowSpace": 10,
+                      "type": "TEXT_WIDGET",
+                      "hideCard": false,
+                      "animateLoading": true,
+                      "overflow": "NONE",
+                      "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+                      "parentColumnSpace": 6.9375,
+                      "dynamicTriggerPathList": [],
+                      "leftColumn": 1,
+                      "dynamicBindingPathList": [
+                        {
+                          "key": "truncateButtonColor"
+                        },
+                        {
+                          "key": "fontFamily"
+                        },
+                        {
+                          "key": "borderRadius"
+                        },
+                        {
+                          "key": "text"
+                        }
+                      ],
+                      "shouldTruncate": false,
+                      "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+                      "text": "Are you sure you want to delete the employee \n\"{{EmployeesTable.triggeredRow?.name}}\"",
+                      "key": "oshk8wiznj",
+                      "isDeprecated": false,
+                      "rightColumn": 63,
+                      "textAlign": "LEFT",
+                      "dynamicHeight": "AUTO_HEIGHT",
+                      "widgetId": "lzw8mb8tbo",
+                      "isVisible": true,
+                      "fontStyle": "BOLD",
+                      "textColor": "#231F20",
+                      "version": 1,
+                      "parentId": "qv3r474khs",
+                      "renderMode": "CANVAS",
+                      "isLoading": false,
+                      "originalTopRow": 6,
+                      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                      "maxDynamicHeight": 9000,
+                      "originalBottomRow": 11,
+                      "fontSize": "1rem",
+                      "minDynamicHeight": 4
                     }
                   ],
                   "isDisabled": false,
@@ -902,7 +1132,7 @@
                 }
               ],
               "key": "jg9lcnt3hu",
-              "height": 240,
+              "height": 210,
               "isDeprecated": false,
               "rightColumn": 40,
               "detachFromLayout": true,
@@ -914,10 +1144,372 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
+              "onClose": "{{GetAllEmployees.run()}}",
+              "originalTopRow": 30,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
+              "originalBottomRow": 21,
               "width": 456,
-              "minDynamicHeight": 24
+              "minDynamicHeight": 10
+            },
+            {
+              "widgetName": "Text3",
+              "displayName": "Text",
+              "iconSVG": "/static/media/icon.97c59b523e6f70ba6f40a10fc2c7c5b5.svg",
+              "searchTags": [
+                "typography",
+                "paragraph",
+                "label"
+              ],
+              "topRow": 0,
+              "bottomRow": 4,
+              "parentRowSpace": 10,
+              "type": "TEXT_WIDGET",
+              "hideCard": false,
+              "animateLoading": true,
+              "overflow": "NONE",
+              "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+              "parentColumnSpace": 19.8125,
+              "dynamicTriggerPathList": [],
+              "leftColumn": 0,
+              "dynamicBindingPathList": [
+                {
+                  "key": "truncateButtonColor"
+                },
+                {
+                  "key": "fontFamily"
+                },
+                {
+                  "key": "borderRadius"
+                }
+              ],
+              "shouldTruncate": false,
+              "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+              "text": "Employees\n",
+              "key": "oshk8wiznj",
+              "isDeprecated": false,
+              "rightColumn": 16,
+              "textAlign": "LEFT",
+              "dynamicHeight": "AUTO_HEIGHT",
+              "widgetId": "p56g4xk08z",
+              "isVisible": true,
+              "fontStyle": "BOLD",
+              "textColor": "#231F20",
+              "version": 1,
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "isLoading": false,
+              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+              "maxDynamicHeight": 9000,
+              "fontSize": "1rem",
+              "minDynamicHeight": 4
+            },
+            {
+              "widgetName": "Text4",
+              "displayName": "Text",
+              "iconSVG": "/static/media/icon.97c59b523e6f70ba6f40a10fc2c7c5b5.svg",
+              "searchTags": [
+                "typography",
+                "paragraph",
+                "label"
+              ],
+              "topRow": 51,
+              "bottomRow": 55,
+              "parentRowSpace": 10,
+              "type": "TEXT_WIDGET",
+              "hideCard": false,
+              "animateLoading": true,
+              "overflow": "NONE",
+              "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+              "parentColumnSpace": 19.8125,
+              "dynamicTriggerPathList": [],
+              "leftColumn": 0,
+              "dynamicBindingPathList": [
+                {
+                  "key": "truncateButtonColor"
+                },
+                {
+                  "key": "fontFamily"
+                },
+                {
+                  "key": "borderRadius"
+                }
+              ],
+              "shouldTruncate": false,
+              "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+              "text": "Departments\n",
+              "key": "oshk8wiznj",
+              "isDeprecated": false,
+              "rightColumn": 16,
+              "textAlign": "LEFT",
+              "dynamicHeight": "AUTO_HEIGHT",
+              "widgetId": "hhq1mqm351",
+              "isVisible": true,
+              "fontStyle": "BOLD",
+              "textColor": "#231F20",
+              "version": 1,
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "isLoading": false,
+              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+              "maxDynamicHeight": 9000,
+              "fontSize": "1rem",
+              "minDynamicHeight": 4
+            },
+            {
+              "widgetName": "Text5",
+              "displayName": "Text",
+              "iconSVG": "/static/media/icon.97c59b523e6f70ba6f40a10fc2c7c5b5.svg",
+              "searchTags": [
+                "typography",
+                "paragraph",
+                "label"
+              ],
+              "topRow": 90,
+              "bottomRow": 94,
+              "parentRowSpace": 10,
+              "type": "TEXT_WIDGET",
+              "hideCard": false,
+              "animateLoading": true,
+              "overflow": "NONE",
+              "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+              "parentColumnSpace": 19.8125,
+              "dynamicTriggerPathList": [],
+              "leftColumn": 0,
+              "dynamicBindingPathList": [
+                {
+                  "key": "truncateButtonColor"
+                },
+                {
+                  "key": "fontFamily"
+                },
+                {
+                  "key": "borderRadius"
+                }
+              ],
+              "shouldTruncate": false,
+              "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+              "text": "Note Templates\n",
+              "key": "oshk8wiznj",
+              "isDeprecated": false,
+              "rightColumn": 16,
+              "textAlign": "LEFT",
+              "dynamicHeight": "AUTO_HEIGHT",
+              "widgetId": "y5r7cbm6mb",
+              "isVisible": true,
+              "fontStyle": "BOLD",
+              "textColor": "#231F20",
+              "version": 1,
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "isLoading": false,
+              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+              "maxDynamicHeight": 9000,
+              "fontSize": "1rem",
+              "minDynamicHeight": 4
+            },
+            {
+              "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+              "borderColor": "#E0DEDE",
+              "isVisibleDownload": true,
+              "iconSVG": "/static/media/icon.db8a9cbd2acd22a31ea91cc37ea2a46c.svg",
+              "topRow": 94,
+              "isSortable": true,
+              "type": "TABLE_WIDGET_V2",
+              "inlineEditingSaveOption": "ROW_LEVEL",
+              "animateLoading": true,
+              "dynamicBindingPathList": [
+                {
+                  "key": "accentColor"
+                },
+                {
+                  "key": "borderRadius"
+                },
+                {
+                  "key": "boxShadow"
+                },
+                {
+                  "key": "tableData"
+                },
+                {
+                  "key": "primaryColumns.id.computedValue"
+                },
+                {
+                  "key": "primaryColumns.template.computedValue"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.borderRadius"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.boxShadow"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.buttonLabel"
+                }
+              ],
+              "leftColumn": 0,
+              "delimiter": ",",
+              "defaultSelectedRowIndex": 0,
+              "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+              "isVisibleFilters": true,
+              "isVisible": true,
+              "enableClientSideSearch": true,
+              "version": 1,
+              "totalRecordsCount": 0,
+              "isLoading": false,
+              "childStylesheet": {
+                "button": {
+                  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                  "boxShadow": "none"
+                },
+                "menuButton": {
+                  "menuColor": "{{appsmith.theme.colors.primaryColor}}",
+                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                  "boxShadow": "none"
+                },
+                "iconButton": {
+                  "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                  "boxShadow": "none"
+                },
+                "editActions": {
+                  "saveButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+                  "saveBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+                  "discardButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+                  "discardBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}"
+                }
+              },
+              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+              "defaultSelectedRowIndices": [
+                0
+              ],
+              "widgetName": "NoteTemplatesTable",
+              "defaultPageSize": 0,
+              "columnOrder": [
+                "id",
+                "template",
+                "customColumn1"
+              ],
+              "dynamicPropertyPathList": [],
+              "displayName": "Table",
+              "bottomRow": 122,
+              "columnWidthMap": {
+                "task": 245,
+                "step": 62,
+                "status": 75,
+                "id": 60,
+                "template": 850.9999999999999
+              },
+              "parentRowSpace": 10,
+              "hideCard": false,
+              "parentColumnSpace": 19.8125,
+              "dynamicTriggerPathList": [],
+              "borderWidth": "1",
+              "primaryColumns": {
+                "id": {
+                  "allowCellWrapping": false,
+                  "index": 0,
+                  "width": 150,
+                  "originalId": "id",
+                  "id": "id",
+                  "alias": "id",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "number",
+                  "textColor": "",
+                  "textSize": "0.875rem",
+                  "fontStyle": "",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "ID",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "{{NoteTemplatesTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"id\"]))}}",
+                  "validation": {},
+                  "cellBackground": ""
+                },
+                "template": {
+                  "allowCellWrapping": false,
+                  "index": 1,
+                  "width": 150,
+                  "originalId": "template",
+                  "id": "template",
+                  "alias": "template",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textColor": "",
+                  "textSize": "0.875rem",
+                  "fontStyle": "",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "Template",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "{{NoteTemplatesTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"template\"]))}}",
+                  "validation": {},
+                  "cellBackground": ""
+                },
+                "customColumn1": {
+                  "allowCellWrapping": false,
+                  "index": 2,
+                  "width": 150,
+                  "originalId": "customColumn1",
+                  "id": "customColumn1",
+                  "alias": "Delete",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "button",
+                  "textSize": "0.875rem",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": true,
+                  "label": "Delete",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "",
+                  "validation": {},
+                  "buttonStyle": "rgb(3, 179, 101)",
+                  "labelColor": "#FFFFFF",
+                  "buttonColor": "#dc2626",
+                  "borderRadius": "{{NoteTemplatesTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
+                  "boxShadow": "{{NoteTemplatesTable.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
+                  "customAlias": "",
+                  "buttonLabel": "{{NoteTemplatesTable.processedTableData.map((currentRow, currentIndex) => ( 'Delete'))}}"
+                }
+              },
+              "key": "oj0kvg7gwt",
+              "isDeprecated": false,
+              "rightColumn": 51,
+              "textSize": "0.875rem",
+              "widgetId": "1yqcuj25ig",
+              "tableData": "{{GetAllNoteTemplates.data}}",
+              "label": "Data",
+              "searchKey": "",
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "horizontalAlignment": "LEFT",
+              "isVisibleSearch": true,
+              "isVisiblePagination": true,
+              "verticalAlignment": "CENTER"
             }
           ]
         },
@@ -942,9 +1534,17 @@
                 " appsmith.store.token "
               ],
               "timeoutInMillisecond": 10000
-            }
-          ],
-          [
+            },
+            {
+              "id": "admin_page_GetAllNoteTemplates",
+              "name": "GetAllNoteTemplates",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [
+                " appsmith.store.token "
+              ],
+              "timeoutInMillisecond": 10000
+            },
             {
               "id": "admin_page_verify_admin_before_load.verifyAdminBeforePageLoad",
               "name": "verify_admin_before_load.verifyAdminBeforePageLoad",
@@ -953,7 +1553,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  if (appsmith.store.debug_mode) {\n    showAlert(\"Skipped admin check because of debug mode being enabled.\");\n    return;\n  }\n  if (!appsmith.store.user.admin) {\n    showAlert(\"Must be an admin to access this page!\", \"error\");\n    navigateTo(\"lot_dashboard\");\n  }\n}"
+                "async () => {\n  if (appsmith.store.debug_mode === \"enabled\") {\n    showAlert(\"Skipped admin check because of debug mode being enabled.\");\n    return;\n  }\n  if (appsmith.store.user.admin === false) {\n    showAlert(\"Must be an admin to access this page!\", \"error\");\n    navigateTo(\"lot_dashboard\");\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }

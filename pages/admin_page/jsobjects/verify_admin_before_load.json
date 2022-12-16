@@ -6,7 +6,7 @@
     "pluginType": "JS",
     "actions": [],
     "archivedActions": [],
-    "body": "export default { \n\tverifyAdminBeforePageLoad: async () => {\n\t\tif(appsmith.store.debug_mode) {\n\t\t\tshowAlert(\"Skipped admin check because of debug mode being enabled.\");\n\t\t\treturn;\n\t\t}\n\t\t\n\t\tif(!appsmith.store.user.admin) {\n\t\t\tshowAlert(\"Must be an admin to access this page!\", \"error\");\n\t\t\tnavigateTo(\"lot_dashboard\");\n\t\t}\n\t}\n}",
+    "body": "export default { \n\tverifyAdminBeforePageLoad: async () => {\n\t\tif(appsmith.store.debug_mode === \"enabled\") {\n\t\t\tshowAlert(\"Skipped admin check because of debug mode being enabled.\");\n\t\t\treturn;\n\t\t}\n\t\t\n\t\tif(appsmith.store.user.admin === false) {\n\t\t\tshowAlert(\"Must be an admin to access this page!\", \"error\");\n\t\t\tnavigateTo(\"lot_dashboard\");\n\t\t}\n\t}\n}",
     "variables": [],
     "userPermissions": []
   },

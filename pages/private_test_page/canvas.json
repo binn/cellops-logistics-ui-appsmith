@@ -29,6 +29,7 @@
               "boxShadow": "none",
               "widgetName": "debugSelector",
               "isFilterable": true,
+              "dynamicPropertyPathList": [],
               "displayName": "Select",
               "iconSVG": "/static/media/icon.bd99caba5853ad71e4b3d8daffacb3a2.svg",
               "labelText": "Debug Mode",
@@ -42,7 +43,7 @@
               "type": "SELECT_WIDGET",
               "serverSideFiltering": false,
               "hideCard": false,
-              "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( `disabled`))(debugSelector.options, debugSelector.serverSideFiltering) }}",
+              "defaultOptionValue": "{{ ((options, serverSideFiltering) => (  appsmith.store.debug_mode ?? \"disabled\" ))(debugSelector.options, debugSelector.serverSideFiltering) }}",
               "animateLoading": true,
               "parentColumnSpace": 19.8125,
               "dynamicTriggerPathList": [
@@ -82,7 +83,7 @@
               "isLoading": false,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
-              "onOptionChange": "{{storeValue('debug_mode',debugSelector.selectedOptionValue == \"enabled\")}}",
+              "onOptionChange": "{{storeValue('debug_mode',debugSelector.selectedOptionValue)}}",
               "minDynamicHeight": 4
             }
           ]

@@ -2,7 +2,7 @@
   "pluginType": "API",
   "pluginId": "restapi-plugin",
   "unpublishedAction": {
-    "name": "UpdateEmployee",
+    "name": "CreateEmployee",
     "datasource": {
       "name": "track.angelcellular.com",
       "pluginId": "restapi-plugin",
@@ -17,7 +17,7 @@
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
-      "path": "/admin/employees/{{EmployeesTable.updatedRow.id}}",
+      "path": "/admin/employees",
       "headers": [
         {
           "key": "content-type",
@@ -26,7 +26,7 @@
       ],
       "encodeParamsToggle": true,
       "queryParameters": [],
-      "body": "{{\n\t{\n\t\tname: EmployeesTable.updatedRow.name,\n\t\tdepartment: GetAllDepartments.data[GetAllDepartments.data.map(e => e.name).indexOf(EmployeesTable.updatedRow.department)]?.id,\n\t\tpin: EmployeesTable.updatedRow.pin,\n\t\tadmin: EmployeesTable.updatedRow.admin,\n\t\tsupervisor: EmployeesTable.updatedRow.supervisor,\n\t}\n}}",
+      "body": "{{\n\t{\n\t\tname: EmployeesTable.newRow?.name,\n\t\tdepartment: GetAllDepartments.data[GetAllDepartments.data.map(e => e.name).indexOf(EmployeesTable.newRow?.department)]?.id,\n\t\tpin: EmployeesTable.newRow?.pin,\n\t\tadmin: EmployeesTable.newRow?.admin,\n\t\tsupervisor: EmployeesTable.newRow?.supervisor,\n\t}\n}}",
       "bodyFormData": [],
       "httpMethod": "POST",
       "selfReferencingDataPaths": [],
@@ -42,9 +42,6 @@
     "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
-        "key": "path"
-      },
-      {
         "key": "body"
       }
     ],
@@ -52,16 +49,15 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "\n\t{\n\t\tname: EmployeesTable.updatedRow.name,\n\t\tdepartment: GetAllDepartments.data[GetAllDepartments.data.map(e => e.name).indexOf(EmployeesTable.updatedRow.department)]?.id,\n\t\tpin: EmployeesTable.updatedRow.pin,\n\t\tadmin: EmployeesTable.updatedRow.admin,\n\t\tsupervisor: EmployeesTable.updatedRow.supervisor,\n\t}\n",
-      " appsmith.store.token ",
-      "EmployeesTable.updatedRow.id"
+      "\n\t{\n\t\tname: EmployeesTable.newRow?.name,\n\t\tdepartment: GetAllDepartments.data[GetAllDepartments.data.map(e => e.name).indexOf(EmployeesTable.newRow?.department)]?.id,\n\t\tpin: EmployeesTable.newRow?.pin,\n\t\tadmin: EmployeesTable.newRow?.admin,\n\t\tsupervisor: EmployeesTable.newRow?.supervisor,\n\t}\n",
+      " appsmith.store.token "
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "admin_page_UpdateEmployee",
+  "id": "admin_page_CreateEmployee",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639a627c7c323677ddd82aca"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639b673c465a9d1762352279"
 }

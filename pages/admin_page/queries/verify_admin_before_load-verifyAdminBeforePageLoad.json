@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "async () => {\n  if (appsmith.store.debug_mode) {\n    showAlert(\"Skipped admin check because of debug mode being enabled.\");\n    return;\n  }\n  if (!appsmith.store.user.admin) {\n    showAlert(\"Must be an admin to access this page!\", \"error\");\n    navigateTo(\"lot_dashboard\");\n  }\n}",
+      "body": "async () => {\n  if (appsmith.store.debug_mode === \"enabled\") {\n    showAlert(\"Skipped admin check because of debug mode being enabled.\");\n    return;\n  }\n  if (appsmith.store.user.admin === false) {\n    showAlert(\"Must be an admin to access this page!\", \"error\");\n    navigateTo(\"lot_dashboard\");\n  }\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
       "isAsync": true
@@ -35,7 +35,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "async () => {\n  if (appsmith.store.debug_mode) {\n    showAlert(\"Skipped admin check because of debug mode being enabled.\");\n    return;\n  }\n  if (!appsmith.store.user.admin) {\n    showAlert(\"Must be an admin to access this page!\", \"error\");\n    navigateTo(\"lot_dashboard\");\n  }\n}"
+      "async () => {\n  if (appsmith.store.debug_mode === \"enabled\") {\n    showAlert(\"Skipped admin check because of debug mode being enabled.\");\n    return;\n  }\n  if (appsmith.store.user.admin === false) {\n    showAlert(\"Must be an admin to access this page!\", \"error\");\n    navigateTo(\"lot_dashboard\");\n  }\n}"
     ],
     "userSetOnLoad": true,
     "confirmBeforeExecute": false,
