@@ -6,7 +6,7 @@
     "pluginType": "JS",
     "actions": [],
     "archivedActions": [],
-    "body": "export default {\n\tfindDepartment: (row) => {\n\t\tvar departmentId = row.sort((a, b) => b.count - a.count)[0]?.id;\n\t\tvar index = GetAllDepartments.data.map(d => d.id).indexOf(departmentId);\n\t\t\n\t\treturn GetAllDepartments.data[index]?.name;\n\t}\n}",
+    "body": "export default {\n\tfindDepartment: (row) => {\n\t\tlet departmentId = 0;\n\t\tif(typeof row === 'number')\n\t\t\tdepartmentId = row;\n\t\telse\n\t\t\tdepartmentId = row.sort((a, b) => b.count - a.count)[0]?.id;\n\t\t\n\t\tvar index = GetAllDepartments.data.map(d => d.id).indexOf(departmentId);\n\t\treturn GetAllDepartments.data[index]?.name;\n\t},\n\tgetAssignments: (assignments) => {\n\t\tlet data = [];\n\t\t\n\t\tconsole.log(typeof assignments);\n\t\tassignments.forEach(e => data.push({ \n\t\t\tid: e.id, \n\t\t\tname: FindDepartmentHelper.findDepartment(e.id), \n\t\t\tcount: e.count }\n\t\t));\n\t\t\n\t\treturn data;\n\t}\n}",
     "variables": [],
     "userPermissions": []
   },

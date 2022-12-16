@@ -2,7 +2,7 @@
   "pluginType": "API",
   "pluginId": "restapi-plugin",
   "unpublishedAction": {
-    "name": "GetAllLots",
+    "name": "UpdateLotAssignments",
     "datasource": {
       "name": "track.angelcellular.com",
       "pluginId": "restapi-plugin",
@@ -16,22 +16,19 @@
     "pageId": "lot_dashboard",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
-      "paginationType": "PAGE_NO",
-      "path": "/lots",
-      "headers": [],
-      "encodeParamsToggle": true,
-      "queryParameters": [
+      "paginationType": "NONE",
+      "path": "/lots/{{LotsTable.selectedRow?.id}}/assignments",
+      "headers": [
         {
-          "key": "page",
-          "value": "{{LotsTable.pageNo}}"
-        },
-        {
-          "key": "lotNo",
-          "value": "{{LotsTable.searchText}}"
+          "key": "content-type",
+          "value": "application/json"
         }
       ],
+      "encodeParamsToggle": true,
+      "queryParameters": [],
+      "body": "{{ appsmith.store.reassignment }}",
       "bodyFormData": [],
-      "httpMethod": "GET",
+      "httpMethod": "POST",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -39,35 +36,32 @@
         }
       ],
       "formData": {
-        "apiContentType": "none"
+        "apiContentType": "application/json"
       }
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
         "key": "path"
       },
       {
-        "key": "queryParameters[0].value"
-      },
-      {
-        "key": "queryParameters[1].value"
+        "key": "body"
       }
     ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
+      " appsmith.store.reassignment ",
       " appsmith.store.token ",
-      "LotsTable.pageNo",
-      "LotsTable.searchText"
+      "LotsTable.selectedRow?.id"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "lot_dashboard_GetAllLots",
+  "id": "lot_dashboard_UpdateLotAssignments",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639cc9eb7b3ff97723bec164"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639ce76b4f35af560dc1157c"
 }

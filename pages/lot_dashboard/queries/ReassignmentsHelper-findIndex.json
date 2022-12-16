@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "findDepartment",
-    "fullyQualifiedName": "FindDepartmentHelper.findDepartment",
+    "name": "findIndex",
+    "fullyQualifiedName": "ReassignmentsHelper.findIndex",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,12 +14,12 @@
       "userPermissions": []
     },
     "pageId": "lot_dashboard",
-    "collectionId": "lot_dashboard_FindDepartmentHelper",
+    "collectionId": "lot_dashboard_ReassignmentsHelper",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "row => {\n  let departmentId = 0;\n  if (typeof row === 'number') departmentId = row; else departmentId = row.sort((a, b) => b.count - a.count)[0]?.id;\n  var index = GetAllDepartments.data.map(d => d.id).indexOf(departmentId);\n  return GetAllDepartments.data[index]?.name;\n}",
+      "body": "id => {\n  return GetIndividualLot.data.assignments.map(e => e.id).indexOf(id);\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {}
@@ -27,7 +27,6 @@
       "isAsync": false
     },
     "executeOnLoad": false,
-    "clientSideExecution": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -37,14 +36,14 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "row => {\n  let departmentId = 0;\n  if (typeof row === 'number') departmentId = row; else departmentId = row.sort((a, b) => b.count - a.count)[0]?.id;\n  var index = GetAllDepartments.data.map(d => d.id).indexOf(departmentId);\n  return GetAllDepartments.data[index]?.name;\n}"
+      "id => {\n  return GetIndividualLot.data.assignments.map(e => e.id).indexOf(id);\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "lot_dashboard_FindDepartmentHelper.findDepartment",
+  "id": "lot_dashboard_ReassignmentsHelper.findIndex",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639cd401749a014ec6e541c9"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639ce5bd7b3ff97723bec27b"
 }

@@ -1,0 +1,16 @@
+{
+  "unpublishedCollection": {
+    "name": "ReassignmentsHelper",
+    "pageId": "lot_dashboard",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\treassign: () => {\n\t\tlet data = Array.from(GetIndividualLot.data.assignments);\t\n\t\tfor(let e of Table2.updatedRows) {\n\t\t\tdata[ReassignmentsHelper.findIndex(e.id)].count = e.updatedFields.count;\n\t\t}\n\t\t\n\t\tstoreValue('reassignment', data);\n\t\tUpdateLotAssignments.run().then(() => GetIndividualLot.run());\n\t},\n\tfindIndex: (id) => {\n\t\treturn GetIndividualLot.data.assignments.map(e => e.id).indexOf(id);\n\t}\n}",
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "lot_dashboard_ReassignmentsHelper",
+  "deleted": false,
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639ce48c7b3ff97723bec273"
+}
