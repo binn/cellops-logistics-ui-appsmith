@@ -1544,7 +1544,9 @@
                 " appsmith.store.token "
               ],
               "timeoutInMillisecond": 10000
-            },
+            }
+          ],
+          [
             {
               "id": "admin_page_verify_admin_before_load.verifyAdminBeforePageLoad",
               "name": "verify_admin_before_load.verifyAdminBeforePageLoad",

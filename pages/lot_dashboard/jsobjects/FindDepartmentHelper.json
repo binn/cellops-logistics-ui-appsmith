@@ -1,0 +1,16 @@
+{
+  "unpublishedCollection": {
+    "name": "FindDepartmentHelper",
+    "pageId": "lot_dashboard",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tfindDepartment: (row) => {\n\t\tvar departmentId = row.sort((a, b) => b.count - a.count)[0]?.id;\n\t\tvar index = GetAllDepartments.data.map(d => d.id).indexOf(departmentId);\n\t\t\n\t\treturn GetAllDepartments.data[index]?.name;\n\t}\n}",
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "lot_dashboard_FindDepartmentHelper",
+  "deleted": false,
+  "gitSyncId": "6398fe0e4b95806da2daaf98_639cd401749a014ec6e541cc"
+}

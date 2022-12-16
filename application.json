@@ -15,6 +15,10 @@
     {
       "id": "private_test_page",
       "isDefault": false
+    },
+    {
+      "id": "individual_lot",
+      "isDefault": false
     }
   ],
   "viewMode": false,
