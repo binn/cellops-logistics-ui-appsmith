@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "() => {\n  let data = Array.from(GetIndividualLot.data.assignments);\n  for (let e of Table2.updatedRows) {\n    data[ReassignmentsHelper.findIndex(e.id)].count = e.updatedFields.count;\n  }\n  storeValue('reassignment', data);\n  UpdateLotAssignments.run().then(() => GetIndividualLot.run());\n}",
+      "body": "() => {\n  if (AssignmentsTable.updatedRows.length == 0) return;\n  let data = Array.from(GetIndividualLot.data.assignments);\n  for (let e of AssignmentsTable.updatedRows) {\n    data[ReassignmentsHelper.findIndex(e.id)].count = e.updatedFields.count;\n  }\n  storeValue('reassignment', data);\n  UpdateLotAssignments.run().then(() => GetIndividualLot.run());\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
       "isAsync": false
@@ -34,7 +34,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "() => {\n  let data = Array.from(GetIndividualLot.data.assignments);\n  for (let e of Table2.updatedRows) {\n    data[ReassignmentsHelper.findIndex(e.id)].count = e.updatedFields.count;\n  }\n  storeValue('reassignment', data);\n  UpdateLotAssignments.run().then(() => GetIndividualLot.run());\n}"
+      "() => {\n  if (AssignmentsTable.updatedRows.length == 0) return;\n  let data = Array.from(GetIndividualLot.data.assignments);\n  for (let e of AssignmentsTable.updatedRows) {\n    data[ReassignmentsHelper.findIndex(e.id)].count = e.updatedFields.count;\n  }\n  storeValue('reassignment', data);\n  UpdateLotAssignments.run().then(() => GetIndividualLot.run());\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
