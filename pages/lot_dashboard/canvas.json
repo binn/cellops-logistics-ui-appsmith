@@ -1101,7 +1101,7 @@
                       },
                       "key": "ti39v35qxf",
                       "isDeprecated": false,
-                      "rightColumn": 63,
+                      "rightColumn": 64,
                       "textSize": "0.875rem",
                       "widgetId": "85jcfxmgzz",
                       "tableData": "{{FindDepartmentHelper.getAssignments(GetIndividualLot.data.assignments)}}",
