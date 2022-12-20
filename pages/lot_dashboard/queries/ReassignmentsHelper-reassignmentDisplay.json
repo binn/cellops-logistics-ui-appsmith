@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getAssignments",
-    "fullyQualifiedName": "FindDepartmentHelper.getAssignments",
+    "name": "reassignmentDisplay",
+    "fullyQualifiedName": "ReassignmentsHelper.reassignmentDisplay",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,12 +14,12 @@
       "userPermissions": []
     },
     "pageId": "lot_dashboard",
-    "collectionId": "lot_dashboard_FindDepartmentHelper",
+    "collectionId": "lot_dashboard_ReassignmentsHelper",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "assignments => {\n  let data = [];\n  assignments.forEach(e => data.push({\n    id: e.id,\n    name: FindDepartmentHelper.findDepartment(e.id),\n    count: e.count\n  }));\n  return data;\n}",
+      "body": "reassignment => {\n  let data = \"\";\n  for (let i = 0; i < reassignment.length; i++) {\n    let e = reassignment[i];\n    data += FindDepartmentHelper.findDepartment(e.id) + \": \" + e.count;\n    if (i + 1 < reassignment.length) data += \", \";\n  }\n  return data;\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {}
@@ -36,14 +36,14 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "assignments => {\n  let data = [];\n  assignments.forEach(e => data.push({\n    id: e.id,\n    name: FindDepartmentHelper.findDepartment(e.id),\n    count: e.count\n  }));\n  return data;\n}"
+      "reassignment => {\n  let data = \"\";\n  for (let i = 0; i < reassignment.length; i++) {\n    let e = reassignment[i];\n    data += FindDepartmentHelper.findDepartment(e.id) + \": \" + e.count;\n    if (i + 1 < reassignment.length) data += \", \";\n  }\n  return data;\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "lot_dashboard_FindDepartmentHelper.getAssignments",
+  "id": "lot_dashboard_ReassignmentsHelper.reassignmentDisplay",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639ce229465a9d1762353b37"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_63a0d0f84f35af560dc13f2a"
 }

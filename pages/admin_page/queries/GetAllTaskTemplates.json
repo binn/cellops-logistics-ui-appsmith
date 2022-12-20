@@ -2,7 +2,7 @@
   "pluginType": "API",
   "pluginId": "restapi-plugin",
   "unpublishedAction": {
-    "name": "GetAllNoteTemplates",
+    "name": "GetAllTaskTemplates",
     "datasource": {
       "name": "track.angelcellular.com",
       "pluginId": "restapi-plugin",
@@ -17,7 +17,7 @@
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
-      "path": "/notes/templates",
+      "path": "/tasks/templates",
       "headers": [],
       "encodeParamsToggle": true,
       "queryParameters": [],
@@ -46,7 +46,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "admin_page_GetAllNoteTemplates",
+  "id": "admin_page_GetAllTaskTemplates",
   "deleted": false,
   "gitSyncId": "6398fe0e4b95806da2daaf98_639baa667b3ff97723bead2a"
 }

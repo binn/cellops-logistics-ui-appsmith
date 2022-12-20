@@ -2,7 +2,7 @@
   "pluginType": "API",
   "pluginId": "restapi-plugin",
   "unpublishedAction": {
-    "name": "DeleteNoteTemplate",
+    "name": "DeleteTaskTemplate",
     "datasource": {
       "name": "track.angelcellular.com",
       "pluginId": "restapi-plugin",
@@ -17,7 +17,7 @@
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
-      "path": "/notes/templates/{{NoteTemplatesTable.triggeredRow?.id}}",
+      "path": "/tasks/templates/{{TaskTemplatesTable.triggeredRow?.id}}",
       "headers": [
         {
           "key": "content-type",
@@ -50,14 +50,14 @@
     "messages": [],
     "jsonPathKeys": [
       " appsmith.store.token ",
-      "NoteTemplatesTable.triggeredRow?.id"
+      "TaskTemplatesTable.triggeredRow?.id"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "admin_page_DeleteNoteTemplate",
+  "id": "admin_page_DeleteTaskTemplate",
   "deleted": false,
   "gitSyncId": "6398fe0e4b95806da2daaf98_639bab277b3ff97723bead34"
 }

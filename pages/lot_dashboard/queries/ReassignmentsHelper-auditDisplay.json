@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "getAssignments",
-    "fullyQualifiedName": "FindDepartmentHelper.getAssignments",
+    "name": "auditDisplay",
+    "fullyQualifiedName": "ReassignmentsHelper.auditDisplay",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -14,12 +14,12 @@
       "userPermissions": []
     },
     "pageId": "lot_dashboard",
-    "collectionId": "lot_dashboard_FindDepartmentHelper",
+    "collectionId": "lot_dashboard_ReassignmentsHelper",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "assignments => {\n  let data = [];\n  assignments.forEach(e => data.push({\n    id: e.id,\n    name: FindDepartmentHelper.findDepartment(e.id),\n    count: e.count\n  }));\n  return data;\n}",
+      "body": "row => {\n  if (row.type === \"LOT_REASSIGNED\") {\n    let reassignments = JSON.parse(row.data);\n    return `Old:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.old)}\\nNew:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.updated)}`;\n  } else return row.data;\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {}
@@ -36,14 +36,14 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "assignments => {\n  let data = [];\n  assignments.forEach(e => data.push({\n    id: e.id,\n    name: FindDepartmentHelper.findDepartment(e.id),\n    count: e.count\n  }));\n  return data;\n}"
+      "row => {\n  if (row.type === \"LOT_REASSIGNED\") {\n    let reassignments = JSON.parse(row.data);\n    return `Old:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.old)}\\nNew:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.updated)}`;\n  } else return row.data;\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "lot_dashboard_FindDepartmentHelper.getAssignments",
+  "id": "lot_dashboard_ReassignmentsHelper.auditDisplay",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639ce229465a9d1762353b37"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_63a0d0bf4f35af560dc13f24"
 }
