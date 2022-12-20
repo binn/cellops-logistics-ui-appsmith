@@ -30,7 +30,7 @@
               "resetFormOnClick": false,
               "boxShadow": "none",
               "widgetName": "Button6Copy",
-              "onClick": "{{ \nstoreValue(\"token\", undefined);\nstoreValue(\"user\", undefined);\n}}",
+              "onClick": "{{ \nstoreValue(\"token\", undefined);\nstoreValue(\"user\", undefined);\nnavigateTo(\"login_page\");\n}}",
               "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
               "dynamicPropertyPathList": [
                 {
@@ -83,10 +83,10 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "originalTopRow": 192,
+              "originalTopRow": 191,
               "disabledWhenInvalid": false,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-              "originalBottomRow": 196,
+              "originalBottomRow": 195,
               "buttonVariant": "PRIMARY",
               "placement": "CENTER"
             },
@@ -973,7 +973,7 @@
                       "originalTopRow": 0,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                       "maxDynamicHeight": 9000,
-                      "originalBottomRow": 5,
+                      "originalBottomRow": 4,
                       "fontSize": "1.875rem",
                       "minDynamicHeight": 4
                     },
@@ -1027,10 +1027,10 @@
                       "parentId": "kzw11gtcx1",
                       "renderMode": "CANVAS",
                       "isLoading": false,
-                      "originalTopRow": 5,
+                      "originalTopRow": 4,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                       "maxDynamicHeight": 9000,
-                      "originalBottomRow": 9,
+                      "originalBottomRow": 8,
                       "fontSize": "1rem",
                       "minDynamicHeight": 4
                     },
@@ -3418,10 +3418,10 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "originalTopRow": 192,
+              "originalTopRow": 191,
               "disabledWhenInvalid": false,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-              "originalBottomRow": 196,
+              "originalBottomRow": 195,
               "buttonVariant": "PRIMARY",
               "placement": "CENTER"
             },
