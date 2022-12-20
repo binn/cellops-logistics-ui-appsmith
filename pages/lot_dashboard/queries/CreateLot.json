@@ -2,7 +2,7 @@
   "pluginType": "API",
   "pluginId": "restapi-plugin",
   "unpublishedAction": {
-    "name": "CreateDepartment",
+    "name": "CreateLot",
     "datasource": {
       "name": "track.angelcellular.com",
       "pluginId": "restapi-plugin",
@@ -13,11 +13,11 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "admin_page",
+    "pageId": "lot_dashboard",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
-      "path": "/admin/departments",
+      "path": "/lots",
       "headers": [
         {
           "key": "content-type",
@@ -26,7 +26,7 @@
       ],
       "encodeParamsToggle": true,
       "queryParameters": [],
-      "body": "{{\n\t{\n\t\tname: DepartmentNameInput.inputText,\n\t\tdescription: DepartmentDescriptionInput.text\n\t}\n}}",
+      "body": "{{\n\t{\n\t\tlotNo: LotNoInput.text,\n\t\tcount: parseInt(ItemCountInput.inputText),\n\t\tdepartment: StartingDepartmentInput.selectedOptionValue\n\t}\n}}",
       "bodyFormData": [],
       "httpMethod": "POST",
       "selfReferencingDataPaths": [],
@@ -49,7 +49,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "\n\t{\n\t\tname: DepartmentNameInput.inputText,\n\t\tdescription: DepartmentDescriptionInput.text\n\t}\n",
+      "\n\t{\n\t\tlotNo: LotNoInput.text,\n\t\tcount: parseInt(ItemCountInput.inputText),\n\t\tdepartment: StartingDepartmentInput.selectedOptionValue\n\t}\n",
       " appsmith.store.token "
     ],
     "userSetOnLoad": false,
@@ -57,7 +57,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "admin_page_CreateDepartment",
+  "id": "lot_dashboard_CreateLot",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639b6bcd7b3ff97723bea9d3"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_63a2084e84bb8a1812346c78"
 }

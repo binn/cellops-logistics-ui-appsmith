@@ -2,6 +2,7 @@
   "unpublishedPage": {
     "name": "login_page",
     "slug": "login-page",
+    "customSlug": "login",
     "layouts": [
       {
         "viewMode": false,
@@ -13,7 +14,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 780,
+          "bottomRow": 1290,
           "containerStyle": "none",
           "snapRows": 125,
           "parentRowSpace": 1,
@@ -26,239 +27,6 @@
           "dynamicBindingPathList": [],
           "leftColumn": 0,
           "children": [
-            {
-              "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
-              "borderColor": "#E0DEDE",
-              "iconSVG": "/static/media/icon.5b428de12db9ad6a591955ead07f86e9.svg",
-              "onSubmit": "{{pin_autologin.onSubmit()}}",
-              "topRow": 20,
-              "type": "JSON_FORM_WIDGET",
-              "animateLoading": true,
-              "leftColumn": 13,
-              "dynamicBindingPathList": [
-                {
-                  "key": "borderRadius"
-                },
-                {
-                  "key": "boxShadow"
-                },
-                {
-                  "key": "submitButtonStyles.buttonColor"
-                },
-                {
-                  "key": "submitButtonStyles.borderRadius"
-                },
-                {
-                  "key": "resetButtonStyles.buttonColor"
-                },
-                {
-                  "key": "resetButtonStyles.borderRadius"
-                },
-                {
-                  "key": "schema.__root_schema__.defaultValue"
-                },
-                {
-                  "key": "schema.__root_schema__.borderRadius"
-                },
-                {
-                  "key": "schema.__root_schema__.cellBorderRadius"
-                },
-                {
-                  "key": "schema.__root_schema__.children.pin.defaultValue"
-                },
-                {
-                  "key": "schema.__root_schema__.children.pin.accentColor"
-                },
-                {
-                  "key": "schema.__root_schema__.children.pin.borderRadius"
-                }
-              ],
-              "showReset": false,
-              "dynamicHeight": "FIXED",
-              "autoGenerateForm": true,
-              "resetButtonStyles": {
-                "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
-                "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                "boxShadow": "none",
-                "buttonVariant": "SECONDARY"
-              },
-              "isVisible": true,
-              "version": 1,
-              "isLoading": false,
-              "submitButtonLabel": "Enter",
-              "childStylesheet": {
-                "ARRAY": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none",
-                  "cellBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "cellBoxShadow": "none"
-                },
-                "OBJECT": {
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none",
-                  "cellBorderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "cellBoxShadow": "none"
-                },
-                "CHECKBOX": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}"
-                },
-                "CURRENCY_INPUT": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none"
-                },
-                "DATEPICKER": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none"
-                },
-                "EMAIL_INPUT": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none"
-                },
-                "MULTISELECT": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none"
-                },
-                "MULTILINE_TEXT_INPUT": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none"
-                },
-                "NUMBER_INPUT": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none"
-                },
-                "PASSWORD_INPUT": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none"
-                },
-                "PHONE_NUMBER_INPUT": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none"
-                },
-                "RADIO_GROUP": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "boxShadow": "none"
-                },
-                "SELECT": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none"
-                },
-                "SWITCH": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "boxShadow": "none"
-                },
-                "TEXT_INPUT": {
-                  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
-                  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                  "boxShadow": "none"
-                }
-              },
-              "disabledWhenInvalid": true,
-              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-              "originalBottomRow": 70,
-              "schema": {
-                "__root_schema__": {
-                  "children": {
-                    "pin": {
-                      "children": {},
-                      "dataType": "string",
-                      "defaultValue": "{{((sourceData, formData, fieldState) => (sourceData.pin))(LoginForm.sourceData, LoginForm.formData, LoginForm.fieldState)}}",
-                      "fieldType": "Text Input",
-                      "sourceData": "",
-                      "isCustomField": false,
-                      "accessor": "pin",
-                      "identifier": "pin",
-                      "position": 0,
-                      "originalIdentifier": "pin",
-                      "accentColor": "{{((sourceData, formData, fieldState) => (appsmith.theme.colors.primaryColor))(LoginForm.sourceData, LoginForm.formData, LoginForm.fieldState)}}",
-                      "borderRadius": "{{((sourceData, formData, fieldState) => (appsmith.theme.borderRadius.appBorderRadius))(LoginForm.sourceData, LoginForm.formData, LoginForm.fieldState)}}",
-                      "boxShadow": "none",
-                      "iconAlign": "left",
-                      "isDisabled": false,
-                      "isRequired": false,
-                      "isSpellCheck": false,
-                      "isVisible": true,
-                      "labelTextSize": "0.875rem",
-                      "label": "PIN",
-                      "maxChars": "6",
-                      "onTextChanged": "{{pin_autologin.onTextChanged()}}"
-                    }
-                  },
-                  "dataType": "object",
-                  "defaultValue": "{{((sourceData, formData, fieldState) => (sourceData))(LoginForm.sourceData, LoginForm.formData, LoginForm.fieldState)}}",
-                  "fieldType": "Object",
-                  "sourceData": {
-                    "pin": ""
-                  },
-                  "isCustomField": false,
-                  "accessor": "__root_schema__",
-                  "identifier": "__root_schema__",
-                  "position": -1,
-                  "originalIdentifier": "__root_schema__",
-                  "borderRadius": "{{((sourceData, formData, fieldState) => (appsmith.theme.borderRadius.appBorderRadius))(LoginForm.sourceData, LoginForm.formData, LoginForm.fieldState)}}",
-                  "boxShadow": "none",
-                  "cellBorderRadius": "{{((sourceData, formData, fieldState) => (appsmith.theme.borderRadius.appBorderRadius))(LoginForm.sourceData, LoginForm.formData, LoginForm.fieldState)}}",
-                  "cellBoxShadow": "none",
-                  "isDisabled": false,
-                  "isRequired": false,
-                  "isVisible": true,
-                  "labelTextSize": "0.875rem",
-                  "label": ""
-                }
-              },
-              "widgetName": "LoginForm",
-              "submitButtonStyles": {
-                "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
-                "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                "boxShadow": "none",
-                "buttonVariant": "PRIMARY"
-              },
-              "dynamicPropertyPathList": [
-                {
-                  "key": "schema.__root_schema__.children.date_of_birth.defaultValue"
-                }
-              ],
-              "displayName": "JSON Form",
-              "bottomRow": 70,
-              "fieldLimitExceeded": false,
-              "parentRowSpace": 10,
-              "title": "Login",
-              "hideCard": false,
-              "parentColumnSpace": 19.8125,
-              "dynamicTriggerPathList": [
-                {
-                  "key": "onSubmit"
-                },
-                {
-                  "key": "schema.__root_schema__.children.pin.onTextChanged"
-                }
-              ],
-              "borderWidth": "1",
-              "sourceData": "{\n\"pin\": \"\"\n}",
-              "resetButtonLabel": "Reset",
-              "key": "wzgi6zafpb",
-              "backgroundColor": "#fff",
-              "isDeprecated": false,
-              "rightColumn": 51,
-              "widgetId": "q8zoq6x7hy",
-              "parentId": "0",
-              "renderMode": "CANVAS",
-              "scrollContents": true,
-              "fixedFooter": true,
-              "originalTopRow": 20,
-              "maxDynamicHeight": 9000,
-              "minDynamicHeight": 4
-            },
             {
               "widgetName": "Text1",
               "displayName": "Text",
@@ -312,10 +80,93 @@
               "originalBottomRow": 19,
               "fontSize": "3rem",
               "minDynamicHeight": 4
+            },
+            {
+              "boxShadow": "none",
+              "iconSVG": "/static/media/icon.9f505595da61a34f563dba82adeb06ec.svg",
+              "onSubmit": "{{pin_autologin.onSubmit()}}",
+              "topRow": 21,
+              "labelWidth": 5,
+              "type": "INPUT_WIDGET_V2",
+              "animateLoading": true,
+              "resetOnSubmit": true,
+              "leftColumn": 24,
+              "dynamicBindingPathList": [
+                {
+                  "key": "accentColor"
+                },
+                {
+                  "key": "borderRadius"
+                }
+              ],
+              "labelStyle": "BOLD",
+              "inputType": "TEXT",
+              "maxChars": "4",
+              "placeholderText": "0000",
+              "isDisabled": false,
+              "isRequired": false,
+              "dynamicHeight": "FIXED",
+              "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+              "isVisible": true,
+              "version": 2,
+              "isLoading": false,
+              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+              "originalBottomRow": 33,
+              "widgetName": "Input1",
+              "displayName": "Input",
+              "searchTags": [
+                "form",
+                "text input",
+                "number",
+                "textarea"
+              ],
+              "bottomRow": 31,
+              "parentRowSpace": 10,
+              "autoFocus": true,
+              "hideCard": false,
+              "parentColumnSpace": 19.8125,
+              "dynamicTriggerPathList": [
+                {
+                  "key": "onTextChanged"
+                },
+                {
+                  "key": "onSubmit"
+                }
+              ],
+              "labelPosition": "Top",
+              "key": "qb57gvf6tx",
+              "labelTextSize": "1.875rem",
+              "onTextChanged": "{{pin_autologin.onTextChanged()}}",
+              "isDeprecated": false,
+              "rightColumn": 37,
+              "widgetId": "026yik9eh3",
+              "label": "PIN",
+              "parentId": "0",
+              "labelAlignment": "left",
+              "renderMode": "CANVAS",
+              "originalTopRow": 26,
+              "maxDynamicHeight": 9000,
+              "iconAlign": "left",
+              "defaultText": "",
+              "minDynamicHeight": 4
             }
           ]
         },
-        "layoutOnLoadActions": [],
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "login_page_pin_autologin.onLoad",
+              "name": "pin_autologin.onLoad",
+              "collectionId": "login_page_pin_autologin",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "() => {\n  storeValue(\"submitting\", \"false\");\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
         "layoutOnLoadActionErrors": [],
         "validOnPageLoadActions": true,
         "id": "login_page",

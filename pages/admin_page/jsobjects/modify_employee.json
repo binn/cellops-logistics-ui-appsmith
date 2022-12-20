@@ -6,7 +6,7 @@
     "pluginType": "JS",
     "actions": [],
     "archivedActions": [],
-    "body": "export default {\n\tselectedEmployee: {\n\t\tid: 0,\n\t\tname: \"\",\n\t\tadmin: false,\n\t\tsupervisor: false,\n\t\tpin: \"\",\n\t\tdepartment: {\n\t\t\tid: 0,\n\t\t\tname: \"\"\n\t\t}\n\t},\n\topenModifyModal: (row) => {\n\t\tvar idx = GetAllEmployees.data.map(e => e.id).indexOf(row.id);\n\t\tmodify_employee.selectedEmployee = GetAllEmployees.data[idx];\n\t\tshowModal(\"Modal1\");\n\t\t\n\t\tconsole.log(modify_employee.selectedEmployee);\n\t}\n}",
+    "body": "export default {\n\tselectedEmployee: {\n\t\tid: 0,\n\t\tname: \"\",\n\t\tadmin: false,\n\t\tsupervisor: false,\n\t\tpin: \"\",\n\t\tdepartment: {\n\t\t\tid: 0,\n\t\t\tname: \"\"\n\t\t}\n\t},\n\topenModifyModal: (row) => {\n\t\tvar idx = GetAllEmployees.data.map(e => e.id).indexOf(row.id);\n\t\tmodify_employee.selectedEmployee = GetAllEmployees.data[idx];\n\t\tshowModal(\"Modal1\");\n\t\t\n\t\tconsole.log(modify_employee.selectedEmployee);\n\t},\n\tshowErrorForDepartment: () => {\n\t\tshowAlert(\"There was an error creating the department.\", \"error\");\n\t\tcloseModal(\"CreateNewDepartmentModal\");\n\t}\n}",
     "variables": [
       {
         "name": "selectedEmployee",

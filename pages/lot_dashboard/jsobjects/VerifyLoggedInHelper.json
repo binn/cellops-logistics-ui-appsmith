@@ -1,0 +1,16 @@
+{
+  "unpublishedCollection": {
+    "name": "VerifyLoggedInHelper",
+    "pageId": "lot_dashboard",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tverifyLoggedIn: async () => {\n\t\tif(appsmith.store.token?.length < 1) {\n\t\t\tshowAlert(\"Login required.\", \"error\");\n\t\t\tnavigateTo(\"login_page\");\n\t\t}\n\t\t\n\t\tGetAllLots.run().then(() => {\n\t\t\tif(GetAllLots.data.error === \"UNAUTHORIZED\") {\n\t\t\t\tshowAlert(\"Login required.\", \"error\");\n\t\t\t\t\n\t\t\t}\n\t\t});\n\t}\n}",
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "lot_dashboard_VerifyLoggedInHelper",
+  "deleted": false,
+  "gitSyncId": "6398fe0e4b95806da2daaf98_63a21839465a9d1762357cf9"
+}

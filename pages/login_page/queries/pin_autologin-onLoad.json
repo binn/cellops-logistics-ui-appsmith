@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "onTextChanged",
-    "fullyQualifiedName": "pin_autologin.onTextChanged",
+    "name": "onLoad",
+    "fullyQualifiedName": "pin_autologin.onLoad",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -19,13 +19,12 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "() => {\n  if (Input1.inputText.length === 4) {\n    pin_autologin.onSubmit();\n  }\n}",
+      "body": "() => {\n  storeValue(\"submitting\", \"false\");\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
-      "isAsync": false
+      "isAsync": true
     },
-    "executeOnLoad": false,
-    "clientSideExecution": true,
+    "executeOnLoad": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -35,14 +34,14 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "() => {\n  if (Input1.inputText.length === 4) {\n    pin_autologin.onSubmit();\n  }\n}"
+      "() => {\n  storeValue(\"submitting\", \"false\");\n}"
     ],
-    "userSetOnLoad": false,
+    "userSetOnLoad": true,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "login_page_pin_autologin.onTextChanged",
+  "id": "login_page_pin_autologin.onLoad",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639907bce77ccb59f6885634"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_63a21b33465a9d1762357d32"
 }

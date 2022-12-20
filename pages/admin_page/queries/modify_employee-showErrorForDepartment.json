@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "onTextChanged",
-    "fullyQualifiedName": "pin_autologin.onTextChanged",
+    "name": "showErrorForDepartment",
+    "fullyQualifiedName": "modify_employee.showErrorForDepartment",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -13,19 +13,18 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "login_page",
-    "collectionId": "login_page_pin_autologin",
+    "pageId": "admin_page",
+    "collectionId": "admin_page_modify_employee",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "() => {\n  if (Input1.inputText.length === 4) {\n    pin_autologin.onSubmit();\n  }\n}",
+      "body": "() => {\n  showAlert(\"There was an error creating the department.\", \"error\");\n  closeModal(\"CreateNewDepartmentModal\");\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
-      "isAsync": false
+      "isAsync": true
     },
     "executeOnLoad": false,
-    "clientSideExecution": true,
     "dynamicBindingPathList": [
       {
         "key": "body"
@@ -35,14 +34,14 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "() => {\n  if (Input1.inputText.length === 4) {\n    pin_autologin.onSubmit();\n  }\n}"
+      "() => {\n  showAlert(\"There was an error creating the department.\", \"error\");\n  closeModal(\"CreateNewDepartmentModal\");\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "login_page_pin_autologin.onTextChanged",
+  "id": "admin_page_modify_employee.showErrorForDepartment",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639907bce77ccb59f6885634"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_63a20047749a014ec6e58a4a"
 }

@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "row => {\n  if (row.type === \"LOT_REASSIGNED\") {\n    let reassignments = JSON.parse(row.data);\n    return `Old:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.old)}\\nNew:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.updated)}`;\n  } else return row.data;\n}",
+      "body": "row => {\n  if (row.type === \"LOT_REASSIGNED\") {\n    let reassignments = JSON.parse(row.data);\n    return `Old:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.old)}\\nNew:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.updated)}`;\n  } else if (row.type === \"NOTE_DELETED\") {\n    let note = JSON.parse(row.data);\n    if (ShowDeletedNotesSwitch.isSwitchedOn) {\n      return `${note.data}\\nTimestamp: ${note.timestamp} UTC\\nCreated By: ${note.createdBy}`;\n    } else return `Note from ${note.createdBy} was deleted.`;\n  } else return row.data;\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {}
@@ -36,7 +36,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "row => {\n  if (row.type === \"LOT_REASSIGNED\") {\n    let reassignments = JSON.parse(row.data);\n    return `Old:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.old)}\\nNew:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.updated)}`;\n  } else return row.data;\n}"
+      "row => {\n  if (row.type === \"LOT_REASSIGNED\") {\n    let reassignments = JSON.parse(row.data);\n    return `Old:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.old)}\\nNew:\\n${ReassignmentsHelper.reassignmentDisplay(reassignments.updated)}`;\n  } else if (row.type === \"NOTE_DELETED\") {\n    let note = JSON.parse(row.data);\n    if (ShowDeletedNotesSwitch.isSwitchedOn) {\n      return `${note.data}\\nTimestamp: ${note.timestamp} UTC\\nCreated By: ${note.createdBy}`;\n    } else return `Note from ${note.createdBy} was deleted.`;\n  } else return row.data;\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

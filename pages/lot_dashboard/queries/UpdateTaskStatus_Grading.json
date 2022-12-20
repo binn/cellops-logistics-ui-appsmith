@@ -57,6 +57,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
+      " appsmith.store.token ",
       "(GradingTasksTable.updatedRow?.completed ? \"true\" : \"false\")",
       "GradingTasksTable.updatedRow?.id"
     ],

@@ -2,7 +2,7 @@
   "pluginType": "API",
   "pluginId": "restapi-plugin",
   "unpublishedAction": {
-    "name": "CreateDepartment",
+    "name": "CreateNote",
     "datasource": {
       "name": "track.angelcellular.com",
       "pluginId": "restapi-plugin",
@@ -13,11 +13,11 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "admin_page",
+    "pageId": "lot_dashboard",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
-      "path": "/admin/departments",
+      "path": "/notes/lots/{{LotsTable.selectedRow?.id}}",
       "headers": [
         {
           "key": "content-type",
@@ -26,7 +26,7 @@
       ],
       "encodeParamsToggle": true,
       "queryParameters": [],
-      "body": "{{\n\t{\n\t\tname: DepartmentNameInput.inputText,\n\t\tdescription: DepartmentDescriptionInput.text\n\t}\n}}",
+      "body": "{{ NoteInput.inputText }}",
       "bodyFormData": [],
       "httpMethod": "POST",
       "selfReferencingDataPaths": [],
@@ -42,6 +42,9 @@
     "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
+        "key": "path"
+      },
+      {
         "key": "body"
       }
     ],
@@ -49,15 +52,16 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "\n\t{\n\t\tname: DepartmentNameInput.inputText,\n\t\tdescription: DepartmentDescriptionInput.text\n\t}\n",
-      " appsmith.store.token "
+      " NoteInput.inputText ",
+      " appsmith.store.token ",
+      "LotsTable.selectedRow?.id"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "admin_page_CreateDepartment",
+  "id": "lot_dashboard_CreateNote",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639b6bcd7b3ff97723bea9d3"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_63a2055e84bb8a1812346c46"
 }

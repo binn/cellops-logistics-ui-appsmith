@@ -2,7 +2,7 @@
   "pluginType": "API",
   "pluginId": "restapi-plugin",
   "unpublishedAction": {
-    "name": "CreateDepartment",
+    "name": "DeleteLot",
     "datasource": {
       "name": "track.angelcellular.com",
       "pluginId": "restapi-plugin",
@@ -13,22 +13,22 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "admin_page",
+    "pageId": "lot_dashboard",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
-      "path": "/admin/departments",
+      "path": "/lots/{{LotsTable.triggeredRow?.id}}",
       "headers": [
         {
           "key": "content-type",
-          "value": "application/json"
+          "value": "text/plain"
         }
       ],
       "encodeParamsToggle": true,
       "queryParameters": [],
-      "body": "{{\n\t{\n\t\tname: DepartmentNameInput.inputText,\n\t\tdescription: DepartmentDescriptionInput.text\n\t}\n}}",
+      "body": "",
       "bodyFormData": [],
-      "httpMethod": "POST",
+      "httpMethod": "DELETE",
       "selfReferencingDataPaths": [],
       "pluginSpecifiedTemplates": [
         {
@@ -36,28 +36,28 @@
         }
       ],
       "formData": {
-        "apiContentType": "application/json"
+        "apiContentType": "none"
       }
     },
     "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
-        "key": "body"
+        "key": "path"
       }
     ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "\n\t{\n\t\tname: DepartmentNameInput.inputText,\n\t\tdescription: DepartmentDescriptionInput.text\n\t}\n",
-      " appsmith.store.token "
+      " appsmith.store.token ",
+      "LotsTable.triggeredRow?.id"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "admin_page_CreateDepartment",
+  "id": "lot_dashboard_DeleteLot",
   "deleted": false,
-  "gitSyncId": "6398fe0e4b95806da2daaf98_639b6bcd7b3ff97723bea9d3"
+  "gitSyncId": "6398fe0e4b95806da2daaf98_63a21562465a9d1762357cd7"
 }

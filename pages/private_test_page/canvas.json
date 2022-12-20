@@ -2,6 +2,7 @@
   "unpublishedPage": {
     "name": "private_test_page",
     "slug": "private-test-page",
+    "customSlug": "debugpage",
     "layouts": [
       {
         "viewMode": false,

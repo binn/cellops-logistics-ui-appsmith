@@ -26,7 +26,7 @@
       ],
       "encodeParamsToggle": true,
       "queryParameters": [],
-      "body": "{\n\t\"pin\": \"{{LoginForm.formData.pin}}\"\n}",
+      "body": "{\n\t\"pin\": \"{{Input1.inputText}}\"\n}",
       "bodyFormData": [],
       "httpMethod": "POST",
       "selfReferencingDataPaths": [],
@@ -40,13 +40,17 @@
       }
     },
     "executeOnLoad": false,
-    "dynamicBindingPathList": [],
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
       " appsmith.store.token ",
-      "LoginForm.formData.pin"
+      "Input1.inputText"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
