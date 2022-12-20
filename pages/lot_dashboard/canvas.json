@@ -14,7 +14,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 2040,
+          "bottomRow": 2030,
           "containerStyle": "none",
           "snapRows": 85,
           "parentRowSpace": 1,
@@ -26,6 +26,70 @@
           "dynamicBindingPathList": [],
           "leftColumn": 0,
           "children": [
+            {
+              "resetFormOnClick": false,
+              "boxShadow": "none",
+              "widgetName": "Button6Copy",
+              "onClick": "{{ \nstoreValue(\"token\", undefined);\nstoreValue(\"user\", undefined);\n}}",
+              "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+              "dynamicPropertyPathList": [
+                {
+                  "key": "isVisible"
+                },
+                {
+                  "key": "onClick"
+                }
+              ],
+              "displayName": "Button",
+              "iconSVG": "/static/media/icon.cca026338f1c8eb6df8ba03d084c2fca.svg",
+              "searchTags": [
+                "click",
+                "submit"
+              ],
+              "topRow": 191,
+              "bottomRow": 195,
+              "parentRowSpace": 10,
+              "type": "BUTTON_WIDGET",
+              "hideCard": false,
+              "animateLoading": true,
+              "parentColumnSpace": 19.8125,
+              "dynamicTriggerPathList": [
+                {
+                  "key": "onClick"
+                }
+              ],
+              "leftColumn": 53,
+              "dynamicBindingPathList": [
+                {
+                  "key": "borderRadius"
+                },
+                {
+                  "key": "buttonColor"
+                },
+                {
+                  "key": "isVisible"
+                }
+              ],
+              "text": "Sign out",
+              "isDisabled": false,
+              "key": "9ogm7mwtr4",
+              "isDeprecated": false,
+              "rightColumn": 64,
+              "isDefaultClickDisabled": true,
+              "widgetId": "rh3wo7mz5l",
+              "isVisible": "{{appsmith.store.user.admin}}",
+              "recaptchaType": "V3",
+              "version": 1,
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "isLoading": false,
+              "originalTopRow": 192,
+              "disabledWhenInvalid": false,
+              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+              "originalBottomRow": 196,
+              "buttonVariant": "PRIMARY",
+              "placement": "CENTER"
+            },
             {
               "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
               "borderColor": "#E0DEDE",
@@ -866,7 +930,7 @@
                         "label"
                       ],
                       "topRow": 0,
-                      "bottomRow": 5,
+                      "bottomRow": 4,
                       "parentRowSpace": 10,
                       "type": "TEXT_WIDGET",
                       "hideCard": false,
@@ -922,8 +986,8 @@
                         "paragraph",
                         "label"
                       ],
-                      "topRow": 5,
-                      "bottomRow": 9,
+                      "topRow": 4,
+                      "bottomRow": 8,
                       "parentRowSpace": 10,
                       "type": "TEXT_WIDGET",
                       "hideCard": false,
@@ -1577,7 +1641,7 @@
                       "borderColor": "#E0DEDE",
                       "isVisibleDownload": true,
                       "iconSVG": "/static/media/icon.db8a9cbd2acd22a31ea91cc37ea2a46c.svg",
-                      "topRow": 60,
+                      "topRow": 62,
                       "isSortable": true,
                       "type": "TABLE_WIDGET_V2",
                       "inlineEditingSaveOption": "ROW_LEVEL",
@@ -1648,7 +1712,7 @@
                         }
                       },
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                      "originalBottomRow": 125,
+                      "originalBottomRow": 127,
                       "defaultSelectedRowIndices": [
                         0
                       ],
@@ -1664,7 +1728,7 @@
                       ],
                       "dynamicPropertyPathList": [],
                       "displayName": "Table",
-                      "bottomRow": 125,
+                      "bottomRow": 127,
                       "columnWidthMap": {
                         "task": 245,
                         "step": 62,
@@ -1859,7 +1923,7 @@
                       "renderMode": "CANVAS",
                       "horizontalAlignment": "LEFT",
                       "isVisibleSearch": true,
-                      "originalTopRow": 60,
+                      "originalTopRow": 62,
                       "isVisiblePagination": true,
                       "verticalAlignment": "CENTER"
                     },
@@ -1977,7 +2041,7 @@
                         "boolean"
                       ],
                       "topRow": 56,
-                      "bottomRow": 60,
+                      "bottomRow": 62,
                       "parentRowSpace": 10,
                       "type": "SWITCH_WIDGET",
                       "alignWidget": "LEFT",
@@ -2010,7 +2074,7 @@
                       "isLoading": false,
                       "originalTopRow": 56,
                       "maxDynamicHeight": 9000,
-                      "originalBottomRow": 60,
+                      "originalBottomRow": 62,
                       "minDynamicHeight": 4
                     }
                   ],
@@ -3317,8 +3381,8 @@
                 "click",
                 "submit"
               ],
-              "topRow": 192,
-              "bottomRow": 196,
+              "topRow": 191,
+              "bottomRow": 195,
               "parentRowSpace": 10,
               "type": "BUTTON_WIDGET",
               "hideCard": false,
@@ -3329,7 +3393,7 @@
                   "key": "onClick"
                 }
               ],
-              "leftColumn": 53,
+              "leftColumn": 42,
               "dynamicBindingPathList": [
                 {
                   "key": "borderRadius"
@@ -3345,7 +3409,7 @@
               "isDisabled": false,
               "key": "9ogm7mwtr4",
               "isDeprecated": false,
-              "rightColumn": 64,
+              "rightColumn": 53,
               "isDefaultClickDisabled": true,
               "widgetId": "5ammkns1yg",
               "isVisible": "{{appsmith.store.user.admin}}",

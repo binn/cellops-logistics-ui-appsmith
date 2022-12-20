@@ -161,7 +161,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "() => {\n  storeValue(\"submitting\", \"false\");\n}"
+                "async () => {\n  storeValue(\"submitting\", \"false\");\n}"
               ],
               "timeoutInMillisecond": 10000
             }

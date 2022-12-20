@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "() => {\n  storeValue(\"submitting\", \"false\");\n}",
+      "body": "async () => {\n  storeValue(\"submitting\", \"false\");\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
       "isAsync": true
@@ -34,7 +34,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "() => {\n  storeValue(\"submitting\", \"false\");\n}"
+      "async () => {\n  storeValue(\"submitting\", \"false\");\n}"
     ],
     "userSetOnLoad": true,
     "confirmBeforeExecute": false,
