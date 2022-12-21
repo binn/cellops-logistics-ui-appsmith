@@ -36,7 +36,7 @@
         }
       ],
       "formData": {
-        "apiContentType": "none"
+        "apiContentType": "text/plain"
       }
     },
     "executeOnLoad": false,
@@ -49,6 +49,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
+      " appsmith.store.token ",
       "NotesTable.triggeredRow?.id"
     ],
     "userSetOnLoad": false,
