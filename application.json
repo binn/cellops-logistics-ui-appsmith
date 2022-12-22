@@ -19,6 +19,10 @@
     {
       "id": "individual_lot",
       "isDefault": false
+    },
+    {
+      "id": "analytics_dashboard",
+      "isDefault": false
     }
   ],
   "viewMode": false,

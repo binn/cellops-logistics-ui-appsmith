@@ -14,7 +14,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 2210,
+          "bottomRow": 2230,
           "containerStyle": "none",
           "snapRows": 85,
           "parentRowSpace": 1,
@@ -759,13 +759,10 @@
                   "key": "primaryColumns.department.computedValue"
                 },
                 {
-                  "key": "primaryColumns.customColumn1.borderRadius"
-                },
-                {
-                  "key": "primaryColumns.customColumn1.boxShadow"
-                },
-                {
                   "key": "primaryColumns.customColumn1.buttonLabel"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.isDisabled"
                 }
               ],
               "leftColumn": 0,
@@ -827,6 +824,9 @@
                 },
                 {
                   "key": "primaryColumns.EditActions1.isDiscardDisabled"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.isDisabled"
                 }
               ],
               "displayName": "Table",
@@ -836,13 +836,13 @@
                 "step": 62,
                 "status": 75,
                 "department": 199,
-                "admin": 157,
+                "admin": 169,
                 "id": 60,
-                "supervisor": 132.99999999999997,
+                "supervisor": 147.99999999999997,
                 "pin": 74,
                 "timestamp": 180,
                 "name": 212,
-                "EditActions1": 150.00000000000003
+                "EditActions1": 155.00000000000003
               },
               "parentRowSpace": 10,
               "hideCard": false,
@@ -1118,33 +1118,31 @@
                   "width": 150,
                   "originalId": "customColumn1",
                   "id": "customColumn1",
-                  "alias": "Delete",
+                  "alias": "🗑️",
                   "horizontalAlignment": "LEFT",
                   "verticalAlignment": "CENTER",
-                  "columnType": "button",
+                  "columnType": "iconButton",
                   "textSize": "0.875rem",
                   "enableFilter": true,
                   "enableSort": true,
                   "isVisible": true,
-                  "isDisabled": false,
+                  "isDisabled": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( currentRow.id == appsmith.user.id))}}",
                   "isCellEditable": false,
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": true,
-                  "label": "Delete",
+                  "label": "🗑️",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
                   "computedValue": "",
                   "validation": {},
                   "buttonStyle": "rgb(3, 179, 101)",
                   "labelColor": "#FFFFFF",
-                  "buttonColor": "#dc2626",
-                  "borderRadius": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
-                  "boxShadow": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
                   "customAlias": "",
                   "buttonLabel": "{{EmployeesTable.processedTableData.map((currentRow, currentIndex) => ( 'Delete'))}}",
                   "buttonVariant": "PRIMARY",
-                  "onClick": "{{showModal('DeleteEmployeeConfirmModal')}}"
+                  "onClick": "{{showModal('DeleteEmployeeConfirmModal')}}",
+                  "iconName": "trash"
                 }
               },
               "onRowSelected": "",
@@ -1201,13 +1199,10 @@
                   "key": "tableData"
                 },
                 {
-                  "key": "primaryColumns.customColumn1.borderRadius"
-                },
-                {
-                  "key": "primaryColumns.customColumn1.boxShadow"
-                },
-                {
                   "key": "primaryColumns.customColumn1.buttonLabel"
+                },
+                {
+                  "key": "primaryColumns.customColumn1.isDisabled"
                 }
               ],
               "leftColumn": 0,
@@ -1258,7 +1253,11 @@
                 "description",
                 "customColumn1"
               ],
-              "dynamicPropertyPathList": [],
+              "dynamicPropertyPathList": [
+                {
+                  "key": "primaryColumns.customColumn1.isDisabled"
+                }
+              ],
               "displayName": "Table",
               "bottomRow": 137,
               "columnWidthMap": {
@@ -1266,7 +1265,7 @@
                 "step": 62,
                 "status": 75,
                 "employees": 114,
-                "description": 884
+                "description": 932
               },
               "parentRowSpace": 10,
               "hideCard": false,
@@ -1396,32 +1395,30 @@
                   "width": 150,
                   "originalId": "customColumn1",
                   "id": "customColumn1",
-                  "alias": "Delete",
+                  "alias": "🗑️",
                   "horizontalAlignment": "LEFT",
                   "verticalAlignment": "CENTER",
-                  "columnType": "button",
+                  "columnType": "iconButton",
                   "textSize": "0.875rem",
                   "enableFilter": true,
                   "enableSort": true,
                   "isVisible": true,
-                  "isDisabled": false,
+                  "isDisabled": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( currentRow.name == \"HR\"))}}",
                   "isCellEditable": false,
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": true,
-                  "label": "Delete",
+                  "label": "🗑️",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
                   "computedValue": "",
                   "validation": {},
                   "buttonStyle": "rgb(3, 179, 101)",
                   "labelColor": "#FFFFFF",
-                  "buttonColor": "#dc2626",
-                  "borderRadius": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
-                  "boxShadow": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
                   "customAlias": "",
                   "buttonLabel": "{{DepartmentsTable.processedTableData.map((currentRow, currentIndex) => ( 'Delete'))}}",
-                  "onClick": "{{showModal('DeleteDepartmentConfirmModal')}}"
+                  "onClick": "{{showModal('DeleteDepartmentConfirmModal')}}",
+                  "iconName": "trash"
                 }
               },
               "key": "o249e3etj6",
@@ -1785,8 +1782,8 @@
                 "paragraph",
                 "label"
               ],
-              "topRow": 0,
-              "bottomRow": 5,
+              "topRow": 1,
+              "bottomRow": 6,
               "parentRowSpace": 10,
               "type": "TEXT_WIDGET",
               "hideCard": false,
@@ -1823,10 +1820,10 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "originalTopRow": 0,
+              "originalTopRow": 1,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
-              "originalBottomRow": 5,
+              "originalBottomRow": 6,
               "fontSize": "1.875rem",
               "minDynamicHeight": 4
             },
@@ -1866,7 +1863,7 @@
               "text": "Departments\n",
               "key": "oshk8wiznj",
               "isDeprecated": false,
-              "rightColumn": 10,
+              "rightColumn": 11,
               "textAlign": "LEFT",
               "dynamicHeight": "AUTO_HEIGHT",
               "widgetId": "hhq1mqm351",
@@ -1893,8 +1890,8 @@
                 "paragraph",
                 "label"
               ],
-              "topRow": 137,
-              "bottomRow": 142,
+              "topRow": 139,
+              "bottomRow": 144,
               "parentRowSpace": 10,
               "type": "TEXT_WIDGET",
               "hideCard": false,
@@ -1931,10 +1928,10 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "originalTopRow": 137,
+              "originalTopRow": 139,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
-              "originalBottomRow": 142,
+              "originalBottomRow": 144,
               "fontSize": "1.875rem",
               "minDynamicHeight": 4
             },
@@ -1943,7 +1940,7 @@
               "borderColor": "#E0DEDE",
               "isVisibleDownload": true,
               "iconSVG": "/static/media/icon.db8a9cbd2acd22a31ea91cc37ea2a46c.svg",
-              "topRow": 142,
+              "topRow": 144,
               "isSortable": false,
               "type": "TABLE_WIDGET_V2",
               "inlineEditingSaveOption": "ROW_LEVEL",
@@ -1966,12 +1963,6 @@
                 },
                 {
                   "key": "primaryColumns.template.computedValue"
-                },
-                {
-                  "key": "primaryColumns.customColumn1.borderRadius"
-                },
-                {
-                  "key": "primaryColumns.customColumn1.boxShadow"
                 },
                 {
                   "key": "primaryColumns.customColumn1.buttonLabel"
@@ -2018,7 +2009,7 @@
                 }
               },
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-              "originalBottomRow": 213,
+              "originalBottomRow": 215,
               "defaultSelectedRowIndices": [
                 0
               ],
@@ -2032,13 +2023,14 @@
               ],
               "dynamicPropertyPathList": [],
               "displayName": "Table",
-              "bottomRow": 213,
+              "bottomRow": 215,
               "columnWidthMap": {
                 "task": 245,
                 "step": 62,
                 "status": 75,
                 "id": 60,
-                "template": 955.9999999999999
+                "template": 955.9999999999999,
+                "category": 180
               },
               "parentRowSpace": 10,
               "hideCard": false,
@@ -2112,10 +2104,10 @@
                   "width": 150,
                   "originalId": "customColumn1",
                   "id": "customColumn1",
-                  "alias": "Delete",
+                  "alias": "🗑️",
                   "horizontalAlignment": "LEFT",
                   "verticalAlignment": "CENTER",
-                  "columnType": "button",
+                  "columnType": "iconButton",
                   "textSize": "0.875rem",
                   "enableFilter": true,
                   "enableSort": true,
@@ -2125,19 +2117,17 @@
                   "isEditable": false,
                   "isCellVisible": true,
                   "isDerived": true,
-                  "label": "Delete",
+                  "label": "🗑️",
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
                   "computedValue": "",
                   "validation": {},
                   "buttonStyle": "rgb(3, 179, 101)",
                   "labelColor": "#FFFFFF",
-                  "buttonColor": "#dc2626",
-                  "borderRadius": "{{TaskTemplatesTable.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
-                  "boxShadow": "{{TaskTemplatesTable.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
                   "customAlias": "",
                   "buttonLabel": "{{TaskTemplatesTable.processedTableData.map((currentRow, currentIndex) => ( 'Delete'))}}",
-                  "onClick": "{{showModal('DeleteTaskTemplateConfirmModal')}}"
+                  "onClick": "{{showModal('DeleteTaskTemplateConfirmModal')}}",
+                  "iconName": "trash"
                 },
                 "category": {
                   "allowCellWrapping": false,
@@ -2182,7 +2172,7 @@
               "renderMode": "CANVAS",
               "horizontalAlignment": "LEFT",
               "isVisibleSearch": true,
-              "originalTopRow": 142,
+              "originalTopRow": 144,
               "isVisiblePagination": true,
               "verticalAlignment": "CENTER"
             },
@@ -2210,7 +2200,7 @@
                   "key": "onClick"
                 }
               ],
-              "leftColumn": 10,
+              "leftColumn": 11,
               "dynamicBindingPathList": [
                 {
                   "key": "buttonColor"
@@ -2223,8 +2213,9 @@
               "isDisabled": false,
               "key": "9ogm7mwtr4",
               "isDeprecated": false,
-              "rightColumn": 18,
+              "rightColumn": 21,
               "isDefaultClickDisabled": true,
+              "iconName": "new-person",
               "widgetId": "atphgqhsvq",
               "isVisible": true,
               "recaptchaType": "V3",
@@ -2237,6 +2228,7 @@
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "originalBottomRow": 84,
               "buttonVariant": "PRIMARY",
+              "iconAlign": "left",
               "placement": "CENTER"
             },
             {
@@ -2623,7 +2615,7 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "onClose": "{{GetAllDepartments.run(() => {}, () => {})}}",
+              "onClose": "{{GetAllDepartments.run(() => resetWidget(\"CreateNewDepartmentModal\",true), () => {})}}",
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
               "width": 456,
@@ -2641,8 +2633,8 @@
                 "click",
                 "submit"
               ],
-              "topRow": 137,
-              "bottomRow": 142,
+              "topRow": 139,
+              "bottomRow": 144,
               "parentRowSpace": 10,
               "type": "BUTTON_WIDGET",
               "hideCard": false,
@@ -2666,8 +2658,9 @@
               "isDisabled": false,
               "key": "9ogm7mwtr4",
               "isDeprecated": false,
-              "rightColumn": 21,
+              "rightColumn": 23,
               "isDefaultClickDisabled": true,
+              "iconName": "add",
               "widgetId": "072gsjaakv",
               "isVisible": true,
               "recaptchaType": "V3",
@@ -2675,11 +2668,12 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "originalTopRow": 137,
+              "originalTopRow": 139,
               "disabledWhenInvalid": false,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-              "originalBottomRow": 142,
+              "originalBottomRow": 144,
               "buttonVariant": "PRIMARY",
+              "iconAlign": "left",
               "placement": "CENTER"
             },
             {
@@ -3061,7 +3055,7 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "onClose": "{{GetAllTaskTemplates.run()}}",
+              "onClose": "{{GetAllTaskTemplates.run(() => resetWidget(\"CreateTaskTemplateModal\",true), () => {})}}",
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
               "width": 456,
@@ -3079,8 +3073,8 @@
                 "click",
                 "submit"
               ],
-              "topRow": 1,
-              "bottomRow": 5,
+              "topRow": 2,
+              "bottomRow": 6,
               "parentRowSpace": 10,
               "type": "BUTTON_WIDGET",
               "hideCard": false,
@@ -3091,7 +3085,7 @@
                   "key": "onClick"
                 }
               ],
-              "leftColumn": 53,
+              "leftColumn": 54,
               "dynamicBindingPathList": [
                 {
                   "key": "buttonColor"
@@ -3106,6 +3100,7 @@
               "isDeprecated": false,
               "rightColumn": 64,
               "isDefaultClickDisabled": true,
+              "iconName": "dashboard",
               "widgetId": "pyjuijsync",
               "isVisible": true,
               "recaptchaType": "V3",
@@ -3116,6 +3111,60 @@
               "disabledWhenInvalid": false,
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "buttonVariant": "PRIMARY",
+              "iconAlign": "left",
+              "placement": "CENTER"
+            },
+            {
+              "resetFormOnClick": false,
+              "boxShadow": "none",
+              "widgetName": "Button9",
+              "onClick": "{{navigateTo('analytics_dashboard', {}, 'SAME_WINDOW')}}",
+              "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
+              "displayName": "Button",
+              "iconSVG": "/static/media/icon.cca026338f1c8eb6df8ba03d084c2fca.svg",
+              "searchTags": [
+                "click",
+                "submit"
+              ],
+              "topRow": 2,
+              "bottomRow": 6,
+              "parentRowSpace": 10,
+              "type": "BUTTON_WIDGET",
+              "hideCard": false,
+              "animateLoading": true,
+              "parentColumnSpace": 19.8125,
+              "dynamicTriggerPathList": [
+                {
+                  "key": "onClick"
+                }
+              ],
+              "leftColumn": 41,
+              "dynamicBindingPathList": [
+                {
+                  "key": "buttonColor"
+                },
+                {
+                  "key": "borderRadius"
+                }
+              ],
+              "text": "Open Analytics Dashboard",
+              "isDisabled": false,
+              "key": "enuzc1sqdl",
+              "isDeprecated": false,
+              "rightColumn": 54,
+              "isDefaultClickDisabled": true,
+              "iconName": "panel-stats",
+              "widgetId": "sow7187zrv",
+              "isVisible": true,
+              "recaptchaType": "V3",
+              "version": 1,
+              "parentId": "0",
+              "renderMode": "CANVAS",
+              "isLoading": false,
+              "disabledWhenInvalid": false,
+              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+              "buttonVariant": "PRIMARY",
+              "iconAlign": "left",
               "placement": "CENTER"
             }
           ]
