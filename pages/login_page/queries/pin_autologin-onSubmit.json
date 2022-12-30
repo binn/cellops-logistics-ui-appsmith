@@ -22,7 +22,7 @@
       "body": "() => {\n  if (appsmith.store.submitting === \"true\") return;\n  storeValue(\"submitting\", \"true\");\n  api_login_user.run().then(() => {\n    if (api_login_user.data.success) {\n      storeValue(\"token\", undefined);\n      storeValue(\"user\", undefined);\n      storeValue(\"token\", api_login_user.data.token);\n      storeValue(\"user\", api_login_user.data.employee);\n      showAlert(\"Login success\", \"success\");\n      navigateTo(\"lot_dashboard\");\n    } else showAlert(\"Failed to login, possibly an invalid PIN.\", \"error\");\n  }).catch(() => {\n    showAlert(\"Failed to login, possibly an invalid PIN.\", \"error\");\n  });\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
-      "isAsync": true
+      "isAsync": false
     },
     "executeOnLoad": false,
     "dynamicBindingPathList": [
