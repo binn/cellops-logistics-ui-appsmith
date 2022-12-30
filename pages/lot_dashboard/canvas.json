@@ -141,6 +141,12 @@
                 },
                 {
                   "key": "borderRadius"
+                },
+                {
+                  "key": "primaryColumns.completedAt.computedValue"
+                },
+                {
+                  "key": "primaryColumns.timestamp.computedValue"
                 }
               ],
               "leftColumn": 48,
@@ -192,7 +198,9 @@
                 "templateId",
                 "id",
                 "category",
-                "EditActions1"
+                "EditActions1",
+                "completedAt",
+                "timestamp"
               ],
               "dynamicPropertyPathList": [
                 {
@@ -399,6 +407,62 @@
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
                   "computedValue": "{{GradingTasksTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"templateId\"]))}}",
+                  "validation": {},
+                  "cellBackground": ""
+                },
+                "completedAt": {
+                  "allowCellWrapping": false,
+                  "index": 5,
+                  "width": 150,
+                  "originalId": "completedAt",
+                  "id": "completedAt",
+                  "alias": "completedAt",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textColor": "",
+                  "textSize": "0.875rem",
+                  "fontStyle": "",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "completedAt",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "{{GradingTasksTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"completedAt\"]))}}",
+                  "validation": {},
+                  "cellBackground": ""
+                },
+                "timestamp": {
+                  "allowCellWrapping": false,
+                  "index": 6,
+                  "width": 150,
+                  "originalId": "timestamp",
+                  "id": "timestamp",
+                  "alias": "timestamp",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textColor": "",
+                  "textSize": "0.875rem",
+                  "fontStyle": "",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "timestamp",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "{{GradingTasksTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"timestamp\"]))}}",
                   "validation": {},
                   "cellBackground": ""
                 }
@@ -2343,6 +2407,12 @@
                 },
                 {
                   "key": "borderRadius"
+                },
+                {
+                  "key": "primaryColumns.completedAt.computedValue"
+                },
+                {
+                  "key": "primaryColumns.timestamp.computedValue"
                 }
               ],
               "leftColumn": 32,
@@ -2394,7 +2464,9 @@
                 "category",
                 "completed",
                 "EditActions1",
-                "templateId"
+                "templateId",
+                "completedAt",
+                "timestamp"
               ],
               "dynamicPropertyPathList": [
                 {
@@ -2602,6 +2674,62 @@
                   "isSaveVisible": true,
                   "isDiscardVisible": true,
                   "computedValue": "{{TestingTasksTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"templateId\"]))}}",
+                  "validation": {},
+                  "cellBackground": ""
+                },
+                "completedAt": {
+                  "allowCellWrapping": false,
+                  "index": 5,
+                  "width": 150,
+                  "originalId": "completedAt",
+                  "id": "completedAt",
+                  "alias": "completedAt",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textColor": "",
+                  "textSize": "0.875rem",
+                  "fontStyle": "",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "completedAt",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "{{TestingTasksTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"completedAt\"]))}}",
+                  "validation": {},
+                  "cellBackground": ""
+                },
+                "timestamp": {
+                  "allowCellWrapping": false,
+                  "index": 6,
+                  "width": 150,
+                  "originalId": "timestamp",
+                  "id": "timestamp",
+                  "alias": "timestamp",
+                  "horizontalAlignment": "LEFT",
+                  "verticalAlignment": "CENTER",
+                  "columnType": "text",
+                  "textColor": "",
+                  "textSize": "0.875rem",
+                  "fontStyle": "",
+                  "enableFilter": true,
+                  "enableSort": true,
+                  "isVisible": true,
+                  "isDisabled": false,
+                  "isCellEditable": false,
+                  "isEditable": false,
+                  "isCellVisible": true,
+                  "isDerived": false,
+                  "label": "timestamp",
+                  "isSaveVisible": true,
+                  "isDiscardVisible": true,
+                  "computedValue": "{{TestingTasksTable.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"timestamp\"]))}}",
                   "validation": {},
                   "cellBackground": ""
                 }

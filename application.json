@@ -13,15 +13,15 @@
       "isDefault": false
     },
     {
+      "id": "analytics_dashboard",
+      "isDefault": false
+    },
+    {
       "id": "private_test_page",
       "isDefault": false
     },
     {
       "id": "individual_lot",
-      "isDefault": false
-    },
-    {
-      "id": "analytics_dashboard",
       "isDefault": false
     }
   ],
